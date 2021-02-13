@@ -27,5 +27,5 @@ export const signUpSchema = yup.object().shape({
         .matches(/.*[a-z].*/, 'La contraseña debe tener al menos un caracter en minuscula'),
     passwordConfirmation: yup
         .string()
-        .oneOf([Yup.ref('password'), null], 'Las contraseñas no coinciden')
+        .oneOf([yup.ref('password'), null], 'Las contraseñas no coinciden')
 });
