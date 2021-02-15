@@ -35,6 +35,36 @@ button {
   cursor: pointer;
   font-family: var(--font-family);
   font-weight: var(--font-medium);
+  min-width: 15rem;
+}
+.button {
+  display: block;
+  margin: 0 auto;
+  border-radius: 20rem;
+  height: 4rem;
+  border: none;
+  color: var(--color-black);
+  transition: 0.3s linear;
+}
+.button-violet {
+  background: var(--color-violet);
+  color: var(--color-white);
+}
+.button-violet:hover {
+  background: #600f61;
+}
+.button-purple {
+  background: var(--color-purple);
+  color: var(--color-white);
+}
+.button-purple:hover {
+  background: #351357;
+}
+.button-yellow {
+  background: var(--color-yelloy);
+}
+.button-yellow:hover {
+  background: #ffc117;
 }
 
 .form {
@@ -70,20 +100,6 @@ button {
   border-radius: 0.5rem;
   color: var(--color-white);
 }
-.form-button {
-  display: block;
-  margin: 0 auto;
-  width: 80%;
-  border-radius: 20rem;
-  height: 4rem;
-  border: none;
-  background: var(--color-yelloy);
-  color: var(--color-black);
-  transition: 0.3s linear;
-}
-.form-button:hover {
-  background: #ffc117;
-}
 .form-checkbox {
   margin-right: 0.5rem;
 }
@@ -97,4 +113,7 @@ button {
 }
 .form-terms strong:hover {
   text-decoration: underline;
+}
+.form-button {
+  width: 80%;
 }

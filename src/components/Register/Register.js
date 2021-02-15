@@ -44,7 +44,7 @@ export const Register = () => (
       />
     </label>
 
-    <button type="submit" className="form-button">
+    <button type="submit" className="button button-yellow form-button">
       Ingresar
     </button>
   </form>
