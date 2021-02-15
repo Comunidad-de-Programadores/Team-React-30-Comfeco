@@ -17,6 +17,7 @@ html {
   --color-purple: #521e87;
   --color-yelloy: #f1b406;
   --color-white: #ffffff;
+  --color-red: #ee1818;
   --font-size: 1.6rem;
   --font-family: 'Roboto', sans-serif;
   --font-ligth: 300;
@@ -36,6 +37,7 @@ button {
   font-family: var(--font-family);
   font-weight: var(--font-medium);
   min-width: 15rem;
+  outline: none;
 }
 .button {
   display: block;
@@ -78,11 +80,10 @@ button {
   position: relative;
   display: block;
   width: 100%;
-  margin-bottom: 2rem;
   color: var(--color-purple);
   font-weight: var(--font-regular);
 }
-.form-label span {
+.form-lab .form-label span {
   cursor: pointer;
   font-size: 1.2rem;
   position: absolute;
@@ -116,4 +117,10 @@ button {
 }
 .form-button {
   width: 80%;
+}
+.form-error {
+  margin-bottom: 2rem;
+  color: var(--color-red);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
 }
