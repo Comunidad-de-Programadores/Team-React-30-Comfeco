@@ -1,9 +1,7 @@
-import React from 'react';
+import { Auth } from './views/Auth/Auth';
 
 function App() {
-  return (
-    <div>App</div>
-  );
+  return <Auth />;
 }
 
 export default App;
