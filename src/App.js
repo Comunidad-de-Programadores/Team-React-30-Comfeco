@@ -1,5 +1,7 @@
+import { Auth } from './views/Auth/Auth';
+
 function App() {
-  return <h1>AppComponent</h1>;
+  return <Auth />;
 }
 
 export default App;
