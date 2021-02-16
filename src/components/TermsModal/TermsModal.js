@@ -1,7 +1,7 @@
 import React from 'react'
 import useGet from '../../hooks/useGet';
 import Modal from '../Modal/Modal';
-import  Loading  from '../Loading';
+import  Loading  from '../Loading/Loading';
 
 const TermsModal = ({isOpenModal,closeModal}) => {
     const [data, fetching] = useGet('terms-and-conditions');

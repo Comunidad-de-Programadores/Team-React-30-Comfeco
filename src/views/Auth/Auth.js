@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Login } from '../../components/Login/Login';
 import { Register } from '../../components/Register/Register';
-
+import useModal from '../../hooks/useModal';
 import Logo from '../../assets/images/logo_horizontal.png';
 import './auth.css';
+import TermsModal from '../../components/TermsModal/TermsModal';
 
 export const Auth = () => {
   const [textButton, setTextButton] = useState('Registrarme');
   const [classButton, setClassButton] = useState('');
+  
+  const [isOpenModal, openModal, closeModal] = useModal();
 
   const handleTextButton = () => {
     if (textButton === 'Iniciar Sesión') {
@@ -17,7 +20,11 @@ export const Auth = () => {
       setTextButton('Iniciar Sesión');
       setClassButton('login-button');
     }
-  };
+  };  
+
+  if (isOpenModal) {
+    return <TermsModal isOpenModal={isOpenModal} closeModal={closeModal} />;
+  }
 
   return (
     <main className="auth">
@@ -26,7 +33,7 @@ export const Auth = () => {
           <figure>
             <img src={Logo} alt="Logo Confeco" />
           </figure>
-          {textButton === 'Iniciar Sesión' ? <Register /> : <Login />}
+          {textButton === 'Iniciar Sesión' ? <Register openModal={openModal} /> : <Login />}
         </section>
 
         <button

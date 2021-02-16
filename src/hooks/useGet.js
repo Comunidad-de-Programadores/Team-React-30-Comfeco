@@ -20,7 +20,7 @@ const useGet = (url) => {
 
     useEffect(() => {
         axiosData();
-    }, url);
+    }, [url]);
     return [data, fetching, err];
 };
 export default useGet;
