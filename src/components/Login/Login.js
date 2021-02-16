@@ -1,7 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-
 import { loginSchema } from '../../validations/auth';
 import { useAuth } from '../../context/auth';
 import { errorAlert, successAlert } from '../../alerts';
@@ -58,5 +57,7 @@ export const Login = () => {
         Ingresar
       </button>
     </form>
+
   );
 };
+
