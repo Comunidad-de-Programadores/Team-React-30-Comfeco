@@ -1,35 +1,63 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { loginSchema } from '../../validations/auth';
+import { useAuth } from '../../context/auth';
+import { errorAlert, successAlert } from '../../alerts';
 
+export const Login = () => {
+  const { login } = useAuth();
+  const { register, handleSubmit, errors, reset } = useForm({
+    resolver: yupResolver(loginSchema),
+  });
 
-export const Login = () => (
-  <>
-    <form className="form">
+  const handleLogin = async ({
+    loginEmail: identifier,
+    loginPassword: password,
+  }) => {
+    const { error } = await login({ identifier, password });
+
+    if (error) {
+      errorAlert(error);
+    } else {
+      reset();
+      successAlert('Acabas de iniciar sesión');
+    }
+  };
+
+  return (
+    <form className="form" onSubmit={handleSubmit(handleLogin)}>
       <h3 className="form-title">Iniciar Sesión</h3>
 
-      <label htmlFor="login-email" className="form-label">
+      <label htmlFor="loginEmail" className="form-label">
         Correo Electronico
         <input
           type="email"
-          id="login-email"
-          name="login-email"
+          id="loginEmail"
+          name="loginEmail"
           className="form-input"
+          ref={register}
         />
       </label>
+      <div className="form-error">{errors.loginEmail?.message}</div>
 
-      <label htmlFor="login-password" className="form-label">
+      <label htmlFor="loginPassword" className="form-label">
         Contraseña <span>¿Olvido su contraseña?</span>
         <input
           type="password"
-          id="login-password"
-          name="login-password"
+          id="loginPassword"
+          name="loginPassword"
           className="form-input"
+          ref={register}
         />
       </label>
+      <div className="form-error">{errors.loginPassword?.message}</div>
 
       <button type="submit" className="button button-yellow form-button">
         Ingresar
       </button>
     </form>
-      
-  </>
-);
+
+  );
+};
+

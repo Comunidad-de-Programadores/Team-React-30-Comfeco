@@ -1,51 +1,31 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Swal from 'sweetalert2';
 import TermsModal from '../TermsModal/TermsModal'
-
 import { registerSchema } from '../../validations/auth';
-import http from '../../utils/http';
 import { useAuth } from '../../context/auth';
 import useModal from '../../hooks/useModal';
+import { errorAlert, successAlert } from '../../alerts';
 
 export const Register = () => {
   const [isOpenModal, openModal, closeModal] = useModal();
-  const { setToken } = useAuth();
+  const { register: registerUser } = useAuth();
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(registerSchema),
   });
 
-  const registerUser = async ({
-    registerNick,
-    registerEmail,
-    registerPassword,
+  const handleRegister = async ({
+    registerNick: username,
+    registerEmail: email,
+    registerPassword: password,
   }) => {
-    try {
-      const response = await http.post('auth/local/register', {
-        username: registerNick,
-        email: registerEmail,
-        password: registerPassword,
-      });
+    const { error } = await registerUser({ username, email, password });
 
-      if (response.data.jwt) {
-        setToken(response.data.jwt);
-        Swal.fire({
-          title: 'Genial!',
-          text: 'Acabas de unirte a Confeco',
-          icon: 'success',
-          confirmButtonText: 'Aceptar',
-        });
-
-        reset();
-      }
-    } catch (error) {
-      Swal.fire({
-        title: 'Que mal!',
-        text: error.response.data.message[0].messages[0].message,
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
+    if (error) {
+      errorAlert(error);
+    } else {
+      reset();
+      successAlert('Acabas de unirte a Confeco');
     }
   };
 
