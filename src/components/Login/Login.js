@@ -1,43 +1,89 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import Swal from 'sweetalert2';
 
-export const Login = () => (
-  <form className="form">
-    <h3 className="form-title">Iniciar Sesión</h3>
+import { loginSchema } from '../../validations/auth';
+import http from '../../utils/http';
+import { useAuth } from '../../context/auth';
 
-    <label htmlFor="login-email" className="form-label">
-      Correo Electronico
-      <input
-        type="email"
-        id="login-email"
-        name="login-email"
-        className="form-input"
-      />
-    </label>
+export const Login = () => {
+  const { setData } = useAuth();
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(loginSchema),
+  });
 
-    <label htmlFor="login-password" className="form-label">
-      Contraseña <span>¿Olvido su contraseña?</span>
-      <input
-        type="password"
-        id="login-password"
-        name="login-password"
-        className="form-input"
-      />
-    </label>
+  const handleLogin = async ({
+    loginEmail: identifier,
+    loginPassword: password,
+  }) => {
+    try {
+      const response = await http.post('auth/local', {
+        identifier,
+        password,
+      });
 
-    <label htmlFor="terms" className="form-label form-terms">
-      <input
-        type="checkbox"
-        name="terms"
-        id="terms"
-        className="form-checkbox"
-      />
-      Acepto los <strong>terminos y condiciones</strong>,{' '}
-      <strong>politica de privacidad</strong> y{' '}
-      <strong>protección de datos</strong>
-    </label>
+      if (response.data.jwt) {
+        setData({
+          token: response.data.jwt,
+          user: response.data.user.username,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: 'Que mal!',
+        text: error.response.data.message[0].messages[0].message,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+      });
+    }
+  };
 
-    <button type="submit" className="button button-yellow form-button">
-      Ingresar
-    </button>
-  </form>
-);
+  return (
+    <form className="form" onSubmit={handleSubmit(handleLogin)}>
+      <h3 className="form-title">Iniciar Sesión</h3>
+
+      <label htmlFor="loginEmail" className="form-label">
+        Correo Electronico
+        <input
+          type="email"
+          id="loginEmail"
+          name="loginEmail"
+          className="form-input"
+          ref={register}
+        />
+      </label>
+      <div className="form-error">{errors.loginEmail?.message}</div>
+
+      <label htmlFor="loginPassword" className="form-label">
+        Contraseña <span>¿Olvido su contraseña?</span>
+        <input
+          type="password"
+          id="loginPassword"
+          name="loginPassword"
+          className="form-input"
+          ref={register}
+        />
+      </label>
+      <div className="form-error">{errors.loginPassword?.message}</div>
+
+      <label htmlFor="terms" className="form-label form-terms">
+        <input
+          type="checkbox"
+          name="terms"
+          id="terms"
+          className="form-checkbox"
+          ref={register}
+        />
+        Acepto los <strong>terminos y condiciones</strong>,{' '}
+        <strong>politica de privacidad</strong> y{' '}
+        <strong>protección de datos</strong>
+      </label>
+      <div className="form-error">{errors.terms?.message}</div>
+
+      <button type="submit" className="button button-yellow form-button">
+        Ingresar
+      </button>
+    </form>
+  );
+};

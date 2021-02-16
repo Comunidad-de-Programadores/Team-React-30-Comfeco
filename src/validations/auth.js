@@ -1,11 +1,12 @@
 import * as yup from 'yup';
 
 export const loginSchema = yup.object().shape({
-  email: yup
+  loginEmail: yup
     .string()
     .email('Correo no válido')
     .required('El correo es obligatorio'),
-  password: yup.string().required('La contraseña es obligatoria'),
+  loginPassword: yup.string().required('La contraseña es obligatoria'),
+  terms: yup.boolean().oneOf([true], 'Debe aceptar los terminos y condiciones')
 });
 
 export const registerSchema = yup.object().shape({

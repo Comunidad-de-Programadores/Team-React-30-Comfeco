@@ -8,25 +8,28 @@ import http from '../../utils/http';
 import { useAuth } from '../../context/auth';
 
 export const Register = () => {
-  const { setToken } = useAuth();
+  const { setData } = useAuth();
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(registerSchema),
   });
 
   const registerUser = async ({
-    registerNick,
-    registerEmail,
-    registerPassword,
+    registerNick: username,
+    registerEmail: email,
+    registerPassword: password,
   }) => {
     try {
       const response = await http.post('auth/local/register', {
-        username: registerNick,
-        email: registerEmail,
-        password: registerPassword,
+        username,
+        email,
+        password,
       });
 
       if (response.data.jwt) {
-        setToken(response.data.jwt);
+        setData({
+          token: response.data.jwt,
+          user: response.data.user.username,
+        });
         Swal.fire({
           title: 'Genial!',
           text: 'Acabas de unirte a Confeco',

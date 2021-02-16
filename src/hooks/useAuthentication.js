@@ -2,29 +2,34 @@ import { useState } from "react";
 import jwt from 'jsonwebtoken';
 
 const useAuthentication = () => {
-    const [authToken, setAuthToken] = useState(sessionStorage.getItem('token') || '');
+    const existingData = JSON.parse(sessionStorage.getItem('userData'));
+    const [userData, setUserData] = useState(existingData);
 
-    const isExpired = () => {
-        const decoded = jwt.decode(authToken, { complete: true });
+    const isExpired = (token) => {
+        const decoded = jwt.decode(token, { complete: true });
         const currentDate = new Date();
 
         return decoded.exp < currentDate.getTime();
     }
 
+    const setData = (data) => {
+        sessionStorage.setItem('userData', JSON.stringify(data));
+        setUserData(data);
+    }
+
     const logout = () => {
-        if (authToken) {
-            setAuthToken();
-        }
+        sessionStorage.removeItem('userData');
+        setUserData();
     }
 
-    const setToken = (token) => {
-        sessionStorage.setItem('token', token);
-        setAuthToken(token);
+    const isLoggedIn = () => {
+        if (!userData || !userData.token) return false;
+
+        const { token } = userData;
+        return token && !isExpired(token);
     }
 
-    const isLoggedIn = () => authToken && !isExpired();
-
-    return { setToken, logout, isLoggedIn };
+    return { setData, logout, isLoggedIn, user: userData?.user };
 }
 
 export default useAuthentication;
