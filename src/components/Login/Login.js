@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '../../validations/auth';
 import { useAuth } from '../../context/auth';
-import { errorAlert, messageAlert } from '../../alerts';
+import { errorAlert, messageAlert } from '../../utils/alerts';
 
 export const Login = () => {
   const { login } = useAuth();
@@ -57,7 +57,5 @@ export const Login = () => {
         Ingresar
       </button>
     </form>
-
   );
 };
-

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from '../../validations/auth';
 import { useAuth } from '../../context/auth';
-import { errorAlert, messageAlert } from '../../alerts';
+import { errorAlert, messageAlert } from '../../utils/alerts';
 
 export const Register = ({ openModal = (f) => f }) => {
   const { register: registerUser } = useAuth();
