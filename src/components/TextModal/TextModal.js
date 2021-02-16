@@ -1,6 +1,6 @@
-import './modal.css';
+import './textModal.css';
 
-const Modal = ({ isOpen, closeModal, children }) => {
+const TextModal = ({ isOpen, closeModal, children }) => {
   const handleModalDialogClick = (e) => {
     e.stopPropagation();
   };
@@ -16,4 +16,4 @@ const Modal = ({ isOpen, closeModal, children }) => {
   );
 };
 
-export default Modal;
+export default TextModal;
