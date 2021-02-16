@@ -28,6 +28,12 @@ export const Login = () => {
           token: response.data.jwt,
           user: response.data.user.username,
         });
+        Swal.fire({
+            title: 'Genial!',
+            text: 'Acabas de iniciar sesión',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+          });
       }
     } catch (error) {
       Swal.fire({
