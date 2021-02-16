@@ -5,8 +5,7 @@ export const loginSchema = yup.object().shape({
     .string()
     .email('Correo no válido')
     .required('El correo es obligatorio'),
-  loginPassword: yup.string().required('La contraseña es obligatoria'),
-  terms: yup.boolean().oneOf([true], 'Debe aceptar los terminos y condiciones')
+  loginPassword: yup.string().required('La contraseña es obligatoria')
 });
 
 export const registerSchema = yup.object().shape({
@@ -31,4 +30,5 @@ export const registerSchema = yup.object().shape({
   registerRepeat: yup
     .string()
     .oneOf([yup.ref('registerPassword'), null], 'Las contraseñas no coinciden'),
+  terms: yup.boolean().oneOf([true], 'Debe aceptar los terminos y condiciones')
 });

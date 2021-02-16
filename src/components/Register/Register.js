@@ -100,6 +100,20 @@ export const Register = () => {
         />
       </label>
       <div className="form-error">{errors.registerRepeat?.message}</div>
+      
+      <label htmlFor="terms" className="form-label form-terms">
+        <input
+          type="checkbox"
+          name="terms"
+          id="terms"
+          className="form-checkbox"
+          ref={register}
+        />
+        Acepto los <strong>terminos y condiciones</strong>,{' '}
+        <strong>politica de privacidad</strong> y{' '}
+        <strong>protección de datos</strong>
+      </label>
+      <div className="form-error">{errors.terms?.message}</div>
 
       <button type="submit" className="button button-yellow form-button">
         Registarme
