@@ -63,9 +63,6 @@
 }
 
 @media screen and (min-width: 800px) {
-  .auth {
-    padding: 0;
-  }
   .auth-button {
     width: 15rem;
     height: 80%;

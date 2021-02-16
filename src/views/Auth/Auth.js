@@ -9,7 +9,7 @@ import TermsModal from '../../components/TermsModal/TermsModal';
 export const Auth = () => {
   const [textButton, setTextButton] = useState('Registrarme');
   const [classButton, setClassButton] = useState('');
-  
+
   const [isOpenModal, openModal, closeModal] = useModal();
 
   const handleTextButton = () => {
@@ -20,7 +20,7 @@ export const Auth = () => {
       setTextButton('Iniciar Sesión');
       setClassButton('login-button');
     }
-  };  
+  };
 
   if (isOpenModal) {
     return <TermsModal isOpenModal={isOpenModal} closeModal={closeModal} />;
@@ -33,7 +33,11 @@ export const Auth = () => {
           <figure>
             <img src={Logo} alt="Logo Confeco" />
           </figure>
-          {textButton === 'Iniciar Sesión' ? <Register openModal={openModal} /> : <Login />}
+          {textButton === 'Iniciar Sesión' ? (
+            <Register openModal={openModal} />
+          ) : (
+            <Login />
+          )}
         </section>
 
         <button
