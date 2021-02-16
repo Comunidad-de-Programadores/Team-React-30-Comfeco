@@ -1,14 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import TermsModal from '../TermsModal/TermsModal';
 import { registerSchema } from '../../validations/auth';
 import { useAuth } from '../../context/auth';
-import useModal from '../../hooks/useModal';
 import { errorAlert, messageAlert } from '../../utils/alerts';
 
-export const Register = () => {
-  const [isOpenModal, openModal, closeModal] = useModal();
+export const Register = ({ openModal = (f) => f }) => {
   const { register: registerUser } = useAuth();
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(registerSchema),
@@ -83,28 +80,27 @@ export const Register = () => {
         <div className="form-error">{errors.registerRepeat?.message}</div>
 
         <label htmlFor="terms" className="form-label form-terms">
-          <div className="form-container-terms">
-            <input
-              type="checkbox"
-              name="terms"
-              id="terms"
-              className="form-checkbox"
-            />
-
-            <button className="link-button" type="button" onClick={openModal}>
-              Acepto los <strong>terminos y condiciones</strong>,{' '}
-              <strong>politica de privacidad</strong> y{' '}
-              <strong>protección de datos</strong>
-            </button>
-          </div>
+          <input
+            type="checkbox"
+            name="terms"
+            id="terms"
+            className="form-checkbox"
+          />
+          Acepto los{' '}
+          <strong
+            onClick={openModal}
+            role="button"
+            tabIndex={0}
+            onKeyDown={openModal}
+          >
+            terminos y condiciones, politica de privacidad y protección de datos
+          </strong>
         </label>
 
         <button type="submit" className="button button-yellow form-button">
           Registarme
         </button>
       </form>
-
-      <TermsModal isOpenModal={isOpenModal} closeModal={closeModal} />
     </>
   );
 };
