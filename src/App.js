@@ -1,12 +1,8 @@
-import Footer from './components/Layout/Footer/Footer';
-import { Auth } from './views/Auth/Auth';
+import Router from './router/Router';
 
 function App() {
   return (
-    <>
-      <Auth />
-      <Footer />
-    </>
+    <Router />
   );
 }
 
