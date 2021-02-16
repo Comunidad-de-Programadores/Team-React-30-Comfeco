@@ -1,5 +1,6 @@
 import { useState } from "react";
 import jwt from 'jsonwebtoken';
+import authService from '../services/authService';
 
 const useAuthentication = () => {
     const existingData = JSON.parse(sessionStorage.getItem('userData'));
@@ -17,6 +18,20 @@ const useAuthentication = () => {
         setUserData(data);
     }
 
+    const tryRequest = async (request, data) => {
+        try {
+            const result = await request(data);
+            setData(result);
+            return { error: null };
+        } catch (error) {
+            return { error };
+        }
+    }
+
+    const login = async (data) => tryRequest(authService.login, data);
+
+    const register = async (data) => tryRequest(authService.register, data);
+
     const logout = () => {
         sessionStorage.removeItem('userData');
         setUserData();
@@ -29,7 +44,7 @@ const useAuthentication = () => {
         return token && !isExpired(token);
     }
 
-    return { setData, logout, isLoggedIn, user: userData?.user };
+    return { login, register, logout, isLoggedIn, user: userData?.user };
 }
 
 export default useAuthentication;

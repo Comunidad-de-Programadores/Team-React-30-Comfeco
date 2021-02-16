@@ -1,56 +1,34 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Swal from 'sweetalert2';
 
 import { registerSchema } from '../../validations/auth';
-import http from '../../utils/http';
 import { useAuth } from '../../context/auth';
+import { errorAlert, successAlert } from '../../alerts';
 
 export const Register = () => {
-  const { setData } = useAuth();
+  const { register: registerUser } = useAuth();
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(registerSchema),
   });
 
-  const registerUser = async ({
+  const handleRegister = async ({
     registerNick: username,
     registerEmail: email,
     registerPassword: password,
   }) => {
-    try {
-      const response = await http.post('auth/local/register', {
-        username,
-        email,
-        password,
-      });
+    const { error } = await registerUser({ username, email, password });
 
-      if (response.data.jwt) {
-        setData({
-          token: response.data.jwt,
-          user: response.data.user.username,
-        });
-        Swal.fire({
-          title: 'Genial!',
-          text: 'Acabas de unirte a Confeco',
-          icon: 'success',
-          confirmButtonText: 'Aceptar',
-        });
-
+    if (error) {
+        errorAlert(error);
+      } else {
         reset();
+        successAlert('Acabas de unirte a Confeco');
       }
-    } catch (error) {
-      Swal.fire({
-        title: 'Que mal!',
-        text: error.response.data.message[0].messages[0].message,
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
-    }
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit(registerUser)}>
+    <form className="form" onSubmit={handleSubmit(handleRegister)}>
       <h3 className="form-title">Registrarme</h3>
 
       <label htmlFor="registerNick" className="form-label">
@@ -100,7 +78,7 @@ export const Register = () => {
         />
       </label>
       <div className="form-error">{errors.registerRepeat?.message}</div>
-      
+
       <label htmlFor="terms" className="form-label form-terms">
         <input
           type="checkbox"

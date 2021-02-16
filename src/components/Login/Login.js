@@ -1,15 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Swal from 'sweetalert2';
 
 import { loginSchema } from '../../validations/auth';
-import http from '../../utils/http';
 import { useAuth } from '../../context/auth';
+import { errorAlert, successAlert } from '../../alerts';
 
 export const Login = () => {
-  const { setData } = useAuth();
-  const { register, handleSubmit, errors } = useForm({
+  const { login } = useAuth();
+  const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(loginSchema),
   });
 
@@ -17,31 +16,13 @@ export const Login = () => {
     loginEmail: identifier,
     loginPassword: password,
   }) => {
-    try {
-      const response = await http.post('auth/local', {
-        identifier,
-        password,
-      });
+    const { error } = await login({ identifier, password });
 
-      if (response.data.jwt) {
-        setData({
-          token: response.data.jwt,
-          user: response.data.user.username,
-        });
-        Swal.fire({
-            title: 'Genial!',
-            text: 'Acabas de iniciar sesión',
-            icon: 'success',
-            confirmButtonText: 'Aceptar',
-          });
-      }
-    } catch (error) {
-      Swal.fire({
-        title: 'Que mal!',
-        text: error.response.data.message[0].messages[0].message,
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
+    if (error) {
+      errorAlert(error);
+    } else {
+      reset();
+      successAlert('Acabas de iniciar sesión');
     }
   };
 
