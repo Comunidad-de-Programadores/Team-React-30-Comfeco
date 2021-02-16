@@ -1,30 +1,50 @@
-import { useState } from "react";
+import { useState } from 'react';
 import jwt from 'jsonwebtoken';
+import authService from '../services/authService';
 
 const useAuthentication = () => {
-    const [authToken, setAuthToken] = useState(sessionStorage.getItem('token') || '');
+  const existingData = JSON.parse(sessionStorage.getItem('userData'));
+  const [userData, setUserData] = useState(existingData);
 
-    const isExpired = () => {
-        const decoded = jwt.decode(authToken, { complete: true });
-        const currentDate = new Date();
+  const isExpired = (token) => {
+    const decoded = jwt.decode(token, { complete: true });
+    const currentDate = new Date();
 
-        return decoded.exp < currentDate.getTime();
+    return decoded.exp < currentDate.getTime();
+  };
+
+  const setData = (data) => {
+    sessionStorage.setItem('userData', JSON.stringify(data));
+    setUserData(data);
+  };
+
+  const tryRequest = async (request, data) => {
+    try {
+      const result = await request(data);
+      setData(result);
+      return { error: null };
+    } catch (error) {
+      return { error };
     }
+  };
 
-    const logout = () => {
-        if (authToken) {
-            setAuthToken();
-        }
-    }
+  const login = async (data) => tryRequest(authService.login, data);
 
-    const setToken = (token) => {
-        sessionStorage.setItem('token', token);
-        setAuthToken(token);
-    }
+  const register = async (data) => tryRequest(authService.register, data);
 
-    const isLoggedIn = () => authToken && !isExpired();
+  const logout = () => {
+    sessionStorage.removeItem('userData');
+    setUserData();
+  };
 
-    return { setToken, logout, isLoggedIn };
-}
+  const isLoggedIn = () => {
+    if (!userData || !userData.token) return false;
+
+    const { token } = userData;
+    return token && !isExpired(token);
+  };
+
+  return { login, register, logout, isLoggedIn, user: userData?.user };
+};
 
 export default useAuthentication;

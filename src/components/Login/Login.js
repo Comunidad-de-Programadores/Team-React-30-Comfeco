@@ -1,43 +1,63 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { loginSchema } from '../../validations/auth';
+import { useAuth } from '../../context/auth';
+import { errorAlert, successAlert } from '../../alerts';
 
-export const Login = () => (
-  <form className="form">
-    <h3 className="form-title">Iniciar Sesión</h3>
+export const Login = () => {
+  const { login } = useAuth();
+  const { register, handleSubmit, errors, reset } = useForm({
+    resolver: yupResolver(loginSchema),
+  });
 
-    <label htmlFor="login-email" className="form-label">
-      Correo Electronico
-      <input
-        type="email"
-        id="login-email"
-        name="login-email"
-        className="form-input"
-      />
-    </label>
+  const handleLogin = async ({
+    loginEmail: identifier,
+    loginPassword: password,
+  }) => {
+    const { error } = await login({ identifier, password });
 
-    <label htmlFor="login-password" className="form-label">
-      Contraseña <span>¿Olvido su contraseña?</span>
-      <input
-        type="password"
-        id="login-password"
-        name="login-password"
-        className="form-input"
-      />
-    </label>
+    if (error) {
+      errorAlert(error);
+    } else {
+      reset();
+      successAlert('Acabas de iniciar sesión');
+    }
+  };
 
-    <label htmlFor="terms" className="form-label form-terms">
-      <input
-        type="checkbox"
-        name="terms"
-        id="terms"
-        className="form-checkbox"
-      />
-      Acepto los <strong>terminos y condiciones</strong>,{' '}
-      <strong>politica de privacidad</strong> y{' '}
-      <strong>protección de datos</strong>
-    </label>
+  return (
+    <form className="form" onSubmit={handleSubmit(handleLogin)}>
+      <h3 className="form-title">Iniciar Sesión</h3>
 
-    <button type="submit" className="button button-yellow form-button">
-      Ingresar
-    </button>
-  </form>
-);
+      <label htmlFor="loginEmail" className="form-label">
+        Correo Electronico
+        <input
+          type="email"
+          id="loginEmail"
+          name="loginEmail"
+          className="form-input"
+          ref={register}
+        />
+      </label>
+      <div className="form-error">{errors.loginEmail?.message}</div>
+
+      <label htmlFor="loginPassword" className="form-label">
+        Contraseña <span>¿Olvido su contraseña?</span>
+        <input
+          type="password"
+          id="loginPassword"
+          name="loginPassword"
+          className="form-input"
+          ref={register}
+        />
+      </label>
+      <div className="form-error">{errors.loginPassword?.message}</div>
+
+      <button type="submit" className="button button-yellow form-button">
+        Ingresar
+      </button>
+    </form>
+
+  );
+};
+
