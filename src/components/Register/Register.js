@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import TermsModal from '../TermsModal/TermsModal'
+import TermsModal from '../TermsModal/TermsModal';
 import { registerSchema } from '../../validations/auth';
 import { useAuth } from '../../context/auth';
 import useModal from '../../hooks/useModal';
-import { errorAlert, messageAlert } from '../../alerts';
+import { errorAlert, messageAlert } from '../../utils/alerts';
 
 export const Register = () => {
   const [isOpenModal, openModal, closeModal] = useModal();
@@ -90,7 +90,7 @@ export const Register = () => {
               id="terms"
               className="form-checkbox"
             />
-          
+
             <button className="link-button" type="button" onClick={openModal}>
               Acepto los <strong>terminos y condiciones</strong>,{' '}
               <strong>politica de privacidad</strong> y{' '}
