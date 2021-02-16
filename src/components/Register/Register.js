@@ -5,7 +5,7 @@ import TermsModal from '../TermsModal/TermsModal'
 import { registerSchema } from '../../validations/auth';
 import { useAuth } from '../../context/auth';
 import useModal from '../../hooks/useModal';
-import { errorAlert, successAlert } from '../../alerts';
+import { errorAlert, messageAlert } from '../../alerts';
 
 export const Register = () => {
   const [isOpenModal, openModal, closeModal] = useModal();
@@ -25,7 +25,7 @@ export const Register = () => {
       errorAlert(error);
     } else {
       reset();
-      successAlert('Acabas de unirte a Confeco');
+      messageAlert('success', 'Acabas de unirte a Confeco');
     }
   };
 

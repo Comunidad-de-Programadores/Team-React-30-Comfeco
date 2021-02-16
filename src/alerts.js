@@ -9,11 +9,11 @@ export const errorAlert = (error) => {
   });
 };
 
-export const successAlert = (text) => {
+export const messageAlert = (icon, text) => {
   Swal.fire({
     title: 'Genial!',
     text,
-    icon: 'success',
+    icon,
     confirmButtonText: 'Aceptar',
   });
 };
