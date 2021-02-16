@@ -20,11 +20,11 @@ export const Register = () => {
     const { error } = await registerUser({ username, email, password });
 
     if (error) {
-        errorAlert(error);
-      } else {
-        reset();
-        successAlert('Acabas de unirte a Confeco');
-      }
+      errorAlert(error);
+    } else {
+      reset();
+      successAlert('Acabas de unirte a Confeco');
+    }
   };
 
   return (

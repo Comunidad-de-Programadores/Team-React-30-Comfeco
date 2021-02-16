@@ -5,11 +5,7 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export default function AuthProvider({ children }) {
-    const auth = useAuthentication();
+  const auth = useAuthentication();
 
-    return (
-      <AuthContext.Provider value={auth}>
-        {children}
-      </AuthContext.Provider>
-    );
+  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 }
