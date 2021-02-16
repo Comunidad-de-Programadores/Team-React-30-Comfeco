@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '../../validations/auth';
 import { useAuth } from '../../context/auth';
-import { errorAlert, successAlert } from '../../alerts';
+import { errorAlert, messageAlert } from '../../alerts';
 
 export const Login = () => {
   const { login } = useAuth();
@@ -21,7 +21,7 @@ export const Login = () => {
       errorAlert(error);
     } else {
       reset();
-      successAlert('Acabas de iniciar sesión');
+      messageAlert('success', 'Acabas de iniciar sesión');
     }
   };
 
