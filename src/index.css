@@ -83,7 +83,7 @@ button {
   color: var(--color-purple);
   font-weight: var(--font-regular);
 }
-.form-lab .form-label span {
+.form .form-label span {
   cursor: pointer;
   font-size: 1.2rem;
   position: absolute;

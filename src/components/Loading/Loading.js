@@ -1,11 +1,10 @@
 import ClipLoader from 'react-spinners/ClipLoader';
+import './loading.css';
 
 const Loading = () => (
-  <ClipLoader
-    color="black"
-    css={{ display: 'block', margin: '0 auto' }}
-    size={150}
-  />
-  );
+  <div className="loader-wrapper">
+    <ClipLoader color="black" size={150} />
+  </div>
+);
 
 export default Loading;
