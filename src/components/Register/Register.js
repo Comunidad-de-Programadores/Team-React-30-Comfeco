@@ -85,6 +85,7 @@ export const Register = ({ openModal = (f) => f }) => {
             name="terms"
             id="terms"
             className="form-checkbox"
+            ref={register}
           />
           Acepto los{' '}
           <strong
@@ -96,6 +97,7 @@ export const Register = ({ openModal = (f) => f }) => {
             terminos y condiciones, politica de privacidad y protección de datos
           </strong>
         </label>
+        <div className="form-error">{errors.terms?.message}</div>
 
         <button type="submit" className="button button-yellow form-button">
           Registarme
