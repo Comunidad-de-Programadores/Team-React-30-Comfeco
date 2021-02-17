@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '../../../validations/auth';
@@ -6,6 +7,7 @@ import { useAuth } from '../../../context/auth';
 import { errorAlert, messageAlert } from '../../../utils/alerts';
 
 export const Login = () => {
+  const history = useHistory();
   const { login } = useAuth();
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(loginSchema),
@@ -42,7 +44,15 @@ export const Login = () => {
       <div className="form-error">{errors.loginEmail?.message}</div>
 
       <label htmlFor="loginPassword" className="form-label">
-        Contraseña <span>¿Olvido su contraseña?</span>
+        Contraseña{' '}
+        <span
+          onClick={() => history.push('/password-reset')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={() => history.push('/password-reset')}
+        >
+          ¿Olvido su contraseña?
+        </span>
         <input
           type="password"
           id="loginPassword"
