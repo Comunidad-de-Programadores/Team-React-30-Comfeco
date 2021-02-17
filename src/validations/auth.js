@@ -42,3 +42,12 @@ export const passwordRecoverySchema = yup.object().shape({
     .email('Correo no válido')
     .required('El correo es obligatorio'),
 });
+
+export const passwordResetSchema = yup.object().shape({
+  resetPassword: yup
+    .string()
+    .required('El campo es obligatorio'),
+  resetRepeat: yup
+    .string()
+    .oneOf([yup.ref('resetPassword'), null], 'Las contraseñas no coinciden'),
+});
