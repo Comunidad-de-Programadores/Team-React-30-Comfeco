@@ -35,3 +35,10 @@ export const registerSchema = yup.object().shape({
     .required('Acepte los terminos y condiciones')
     .oneOf([true], 'Debe aceptar los terminos y condiciones'),
 });
+
+export const passwordRecoverySchema = yup.object().shape({
+  recoveryEmail: yup
+    .string()
+    .email('Correo no válido')
+    .required('El correo es obligatorio'),
+});

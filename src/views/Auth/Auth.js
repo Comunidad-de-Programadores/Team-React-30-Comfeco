@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Login } from '../../components/Login/Login';
-import { Register } from '../../components/Register/Register';
+import { Login } from '../../components/Auth/Login/Login';
+import { Register } from '../../components/Auth/Register/Register';
 import useModal from '../../hooks/useModal';
 import Logo from '../../assets/images/logo_horizontal.png';
 import './auth.css';
-import TermsModal from '../../components/TermsModal/TermsModal';
+import TermsModal from '../../components/Modal/TermsModal/TermsModal';
 
 export const Auth = () => {
   const [textButton, setTextButton] = useState('Registrarme');
