@@ -15,7 +15,7 @@ html {
   --color-grey: #555555;
   --color-violet: #8a178c;
   --color-purple: #521e87;
-  --color-yelloy: #f1b406;
+  --color-yellow: #f1b406;
   --color-white: #ffffff;
   --color-red: #ee1818;
   --font-size: 1.6rem;
@@ -63,7 +63,7 @@ button {
   background: #351357;
 }
 .button-yellow {
-  background: var(--color-yelloy);
+  background: var(--color-yellow);
 }
 .button-yellow:hover {
   background: #ffc117;
@@ -137,5 +137,5 @@ button {
 
 .link-button:hover,
 .link-button:focus {
-text-decoration: none;
+  text-decoration: none;
 }
