@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { passwordResetSchema as schema } from '../../validations/auth';
+import { passwordResetSchema as schema } from '../../../validations/auth';
 
 export default function PasswordReset() {
   const { register, handleSubmit, errors } = useForm({
