@@ -1,18 +1,28 @@
-import './Auth';
+import '../Auth';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
-import { passwordRecoverySchema as schema } from '../../validations/auth';
+import { passwordRecoverySchema as schema } from '../../../validations/auth';
+import http from '../../../utils/http';
 
 export default function PasswordRecovery() {
   const [emailSend, setEmailSend] = useState(false);
+  const [error, setError] = useState('');
+  
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = () => {
-      setEmailSend(true);
-      reset();
+  const onSubmit = ({ recoveryEmail: email }) => {
+    reset();
+    http
+      .post('auth/forgot-password', { email })
+      .then(() => {
+        setEmailSend(true);
+      })
+      .catch((err) => {
+        setError(err.response.data.message[0].messages[0].message);
+      });
   };
 
   return (
@@ -38,7 +48,16 @@ export default function PasswordRecovery() {
               />
             </label>
             <div className="form-error">{errors.recoveryEmail?.message}</div>
-            { emailSend ? <p className="form-text message">Correo Enviado</p> : '' }
+            {error ? (
+              <div className="form-error form-text message">{error}</div>
+            ) : (
+              ''
+            )}
+            {emailSend ? (
+              <p className="form-text message">Correo Enviado</p>
+            ) : (
+              ''
+            )}
 
             <button type="submit" className="button button-yellow form-button">
               Recuperar Contraseña

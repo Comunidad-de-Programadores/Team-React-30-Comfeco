@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Layout from '../views/Layout/Dashboard';
 import { Auth } from '../views/Auth/Auth';
-import PasswordRecovery from '../views/Auth/PasswordRecovery';
-import PasswordReset from '../views/Auth/PasswordReset';
+import PasswordRecovery from '../views/Auth/PasswordRecovery/PasswordRecovery';
+import PasswordReset from '../views/Auth/PasswordReset/PasswordReset';
 
 const Router = () => (
   <BrowserRouter>
