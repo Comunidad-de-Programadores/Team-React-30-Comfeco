@@ -1,4 +1,4 @@
-.modal {
+.text-modal {
   background: white;
   position: fixed;
   height: 100vh;
@@ -10,7 +10,7 @@
   display: none;
 }
 
-.modal-dialog {
+.text-modal-dialog {
   background: white;
   padding: 5rem;
   white-space: pre-wrap;
@@ -19,11 +19,11 @@
   overflow-y: auto;
 }
 
-.modal-open {
+.text-modal-open {
   display: grid;
 }
 
-.modal-dialog-btn {
+.text-modal-dialog-btn {
   margin-top: 4rem;
   padding-left: 10rem;
   padding-right: 10rem;
