@@ -1,34 +1,40 @@
 import React from 'react';
+import { useHistory , useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useLocation } from 'react-router-dom';
+
 import { passwordResetSchema as schema } from '../../../validations/auth';
-import {messageAlert,errorAlert} from '../../../utils/alerts'
+import { messageAlert, errorAlert } from '../../../utils/alerts';
 import http from '../../../utils/http';
 
 export default function PasswordReset() {
+  const history = useHistory();
   const location = useLocation();
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = ({resetPassword:password,resetRepeat:passwordConfirmation}) => {
+  const onSubmit = ({
+    resetPassword: password,
+    resetRepeat: passwordConfirmation,
+  }) => {
     const totalCode = location.search;
     const code = totalCode.slice(6);
-    http.post(
-        'auth/reset-password',
-        {
-          code: `${code}`,
+    http
+      .post('auth/reset-password', {
+        code: `${code}`,
 
-          password,
-          passwordConfirmation,
-        }
-    ).then(() => {
-      messageAlert("success","La contraseña se cambio correctamente");
-    }).catch((error) => {
-      errorAlert(error)
-    })
-  
+        password,
+        passwordConfirmation,
+      })
+      .then(() => {
+        messageAlert('success', 'La contraseña se cambio correctamente').then(() => {
+            history.push('/');
+        });
+      })
+      .catch((error) => {
+        errorAlert(error);
+      });
   };
 
   return (
