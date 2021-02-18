@@ -46,7 +46,17 @@ export const passwordRecoverySchema = yup.object().shape({
 export const passwordResetSchema = yup.object().shape({
   resetPassword: yup
     .string()
-    .required('El campo es obligatorio'),
+    .required('La contraseña es obligatoria')
+    .min(8, 'La contraseña debe tener 8 caracteres como mínimo')
+    .matches(/.*[0-9].*/, 'La contraseña debe tener al menos un número')
+    .matches(
+      /.*[A-Z].*/,
+      'La contraseña debe tener al menos un caracter en mayuscula'
+    )
+    .matches(
+      /.*[a-z].*/,
+      'La contraseña debe tener al menos un caracter en minuscula'
+    ),
   resetRepeat: yup
     .string()
     .oneOf([yup.ref('resetPassword'), null], 'Las contraseñas no coinciden'),
