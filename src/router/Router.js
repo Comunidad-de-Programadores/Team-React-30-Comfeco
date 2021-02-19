@@ -3,6 +3,7 @@ import Layout from '../views/Layout/Dashboard';
 import { Auth } from '../views/Auth/Auth';
 import PasswordRecovery from '../views/Auth/PasswordRecovery/PasswordRecovery';
 import PasswordReset from '../views/Auth/PasswordReset/PasswordReset';
+import { Home } from '../views/Home/Home';
 
 const Router = () => (
   <BrowserRouter>
@@ -18,6 +19,7 @@ const Router = () => (
             <Route path="/password-reset/reset" component={PasswordReset} />
           </Switch>
         </Route>
+        <Route exact path="/home" component={Home} />
       </Switch>
     </Layout>
   </BrowserRouter>
