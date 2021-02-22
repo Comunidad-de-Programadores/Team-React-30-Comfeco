@@ -1,6 +1,6 @@
 .header {
   background: var(--color-black);
-  height: 8vh;
+  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -16,6 +16,14 @@
 .header-message {
   color: var(--color-yellow);
   font-weight: var(--font-medium);
+}
+.link {
+  color: var(--color-white);
+  text-decoration: none;
+  cursor: pointer;
+}
+.link:hover {
+  color: var(--color-yellow);
 }
 @media screen and (min-width: 375px) {
   .header {
