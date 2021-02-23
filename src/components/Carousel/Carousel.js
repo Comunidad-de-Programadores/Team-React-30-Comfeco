@@ -8,11 +8,11 @@ const Carousel = ({elements,autoplay,autoplaySpeed,slidesToShow,wheel}) => (
     autoplaySpeed={autoplaySpeed}
     slidesToShow={slidesToShow}
     wheel={wheel}
+    centerMode
   >
-    {elements.map((element) => {
-            const Element = element;
-            return <Element />
-         })}
+    {
+         elements
+    }
   </Slider>
         
     )
