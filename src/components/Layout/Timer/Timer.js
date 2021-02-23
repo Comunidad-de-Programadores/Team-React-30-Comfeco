@@ -34,7 +34,7 @@ export const Timer = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (data) {
+      if (data && data.length > 0) {
         const timeLeft = getTimeLeft(data[0].date);
         const parts = decomposeTime(timeLeft);
         const newTime = { ...time };
