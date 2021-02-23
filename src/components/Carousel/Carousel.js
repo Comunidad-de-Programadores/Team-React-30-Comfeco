@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'infinite-react-carousel';
 
-const Carousel = ({elements,autoplay,autoplaySpeed,slidesToShow,wheel}) => (
+const Carousel = ({elements,autoplay,autoplaySpeed,slidesToShow,wheel,arrows}) => (
   <Slider
     dots
     autoplay={autoplay}
@@ -9,6 +9,7 @@ const Carousel = ({elements,autoplay,autoplaySpeed,slidesToShow,wheel}) => (
     slidesToShow={slidesToShow}
     wheel={wheel}
     centerMode
+    arrows={arrows}
   >
     {
          elements

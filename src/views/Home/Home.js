@@ -27,7 +27,6 @@ export const Home = () => (
             </p>
           </div>
           <SpeakerCarousel />
-          { /* TODO: Carousel de creadores de contenido */ }
           { /* TODO: Carousel de sponsors */ }
         </div>
       </section>
