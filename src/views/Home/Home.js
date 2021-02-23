@@ -25,6 +25,8 @@ export const Home = () => (
               aprender en comunidad.
             </p>
           </div>
+          { /* TODO: Carousel de creadores de contenido */ }
+          { /* TODO: Carousel de sponsors */ }
         </div>
       </section>
     </div>

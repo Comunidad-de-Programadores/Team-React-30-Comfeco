@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import jwt from 'jsonwebtoken';
+/* import jwt from 'jsonwebtoken'; */
 import authService from '../services/authService';
 
 const useAuthentication = () => {
   const existingData = JSON.parse(sessionStorage.getItem('userData'));
   const [userData, setUserData] = useState(existingData);
 
-  const isExpired = (token) => {
+  /*   const isExpired = (token) => {
     const decoded = jwt.decode(token, { complete: true });
     const currentDate = new Date();
 
     return decoded.exp < currentDate.getTime();
-  };
+  }; */
 
   const setData = (data) => {
     sessionStorage.setItem('userData', JSON.stringify(data));
@@ -37,12 +37,13 @@ const useAuthentication = () => {
     setUserData();
   };
 
-  const isLoggedIn = () => {
-    if (!userData || !userData.token) return false;
+  const isLoggedIn = () => true;
+  // {
+  //     if (!userData || !userData.token) return false;
 
-    const { token } = userData;
-    return token && !isExpired(token);
-  };
+  //     const { token } = userData;
+  //     return token && !isExpired(token);
+  //   };
 
   return { login, register, logout, isLoggedIn, user: userData?.user };
 };

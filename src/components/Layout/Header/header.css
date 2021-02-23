@@ -7,8 +7,9 @@
   padding: 0 1.5rem;
 }
 .header-link {
-  display: block;
+  display: none;
   height: 3.5rem;
+  margin-right: 2rem;
 }
 .header-link img {
   height: 100%;
@@ -25,6 +26,16 @@
 .link:hover {
   color: var(--color-yellow);
 }
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.header-links {
+  display: none;
+}
+.header-left > .header-links a {
+  margin: 0 2rem;
+}
 @media screen and (min-width: 375px) {
   .header {
     padding: 0 5%;
@@ -36,5 +47,17 @@
   }
   .header-message {
     font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .header-link {
+    display: block;
+  }
+  .header-links {
+    display: flex;
+    align-items: center;
+  }
+  .side-nav-wrapper {
+    display: none;
   }
 }

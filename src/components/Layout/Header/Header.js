@@ -1,17 +1,45 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../../../context/auth';
+import User from '../User/User';
 
 import './header.css';
 import Logo from '../../../assets/images/logo_horizontal.png';
+import SideNav from '../SideNav/SideNav';
 
 export const Header = () => {
   const location = useLocation();
+  const { isLoggedIn } = useAuth();
 
   return (
     <header className="header">
-      <Link to="/" className="header-link">
-        <img src={Logo} alt="Logo Confeco" />
-      </Link>
+      <div className="header-left">
+        <Link to="/" className="header-link">
+          <img src={Logo} alt="Logo Confeco" />
+        </Link>
+
+        {isLoggedIn() && (
+          <>
+            <div className="side-nav-wrapper">
+              <SideNav />
+            </div>
+            <div className="header-links">
+              <Link className="link" to="/home">
+                Inicio
+              </Link>
+              <Link className="link" to="/communities">
+                Comunidades
+              </Link>
+            </div>
+          </>
+        )}
+      </div>
+
+      {isLoggedIn() && (
+        <div className="header-right">
+          <User />
+        </div>
+      )}
 
       {location.pathname === '/auth' ? (
         <div className="header-message">&lt;&gt;HolaMundo&lt;/&gt;</div>
@@ -19,7 +47,9 @@ export const Header = () => {
         ''
       )}
       {location.pathname === '/password-reset' ? (
-        <Link to="/" className="link">Regresar al login</Link>
+        <Link to="/" className="link">
+          Regresar al login
+        </Link>
       ) : (
         ''
       )}
