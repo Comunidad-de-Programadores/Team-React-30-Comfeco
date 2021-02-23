@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import useGet from '../../../hooks/useGet';
 
 import './timer.css';
 
@@ -11,8 +12,41 @@ const decomposeTime = (seconds) => {
   return { days, hours, minutes, sec };
 };
 
-export const Timer = ({ seconds }) => {
-  const { days, hours, minutes, sec } = decomposeTime(seconds);
+const getTimeLeft = (date) => {
+  if (!date) return 0;
+
+  const splited = date.split('-');
+  const today = new Date();
+  const eventDate = new Date(splited[0], splited[1] - 1, splited[2]);
+  return Math.abs((today.getTime() - eventDate.getTime()) / 1000);
+};
+
+export const Timer = () => {
+  const [data, fetching, error] = useGet('events');
+  const [time, setTime] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    sec: 0,
+  });
+
+  const { days, hours, minutes, sec } = time;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (data) {
+        const timeLeft = getTimeLeft(data[0].date);
+        const parts = decomposeTime(timeLeft);
+        const newTime = { ...time };
+        Object.assign(newTime, parts);
+        setTime(newTime);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [data]);
+
+  if (fetching || error) return null;
 
   return (
     <section className="timer">

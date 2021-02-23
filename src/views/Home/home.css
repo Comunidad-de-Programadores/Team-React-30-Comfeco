@@ -30,6 +30,10 @@
   grid-template-columns: 1fr;
 }
 
+.left {
+  order: 1;
+}
+
 @media screen and (min-width: 375px) {
   .home {
     padding: 5% 5%;
@@ -69,5 +73,17 @@
   }
   .home-description.text {
     font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 1320px) {
+  .home-grid {
+    grid-template-columns: 35rem 1fr;
+  }
+  .home-description.wrapper {
+      padding: 0 5rem;
+  }
+  .left {
+    order: 0;
   }
 }
