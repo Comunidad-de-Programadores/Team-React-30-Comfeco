@@ -1,0 +1,38 @@
+.speaker-card {
+    display: inline-block;
+    max-width: 25rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem 0 var(--color-grey);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.speaker-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.speaker-team {
+    padding: 0.5rem;
+    background-color: var(--color-grey);
+    box-shadow: 0 0 1rem 0 var(--color-grey);
+    border-radius: 3rem;
+    position: relative;
+    width: calc(100% / 5);
+    width: calc(100% / 5);
+    top: calc(100% / 10 * -1.5);
+    left: calc(100% / 2 - calc(100% / 10));
+}
+
+.speaker-card p {
+    padding: 0 3rem;
+    position: relative;
+    top: -2.5rem;
+    text-align: center;
+    margin: auto 0;
+}

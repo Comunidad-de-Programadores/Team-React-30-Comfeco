@@ -1,29 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import useGet from '../../../hooks/useGet';
 
 import './timer.css';
 
-export const Timer = () => (
-  <section className="timer">
-    <div className="timer-content">
-      <div className="timer-section day">
-        <h3>365</h3>
-        <p>Dias</p>
-      </div>
+const decomposeTime = (seconds) => {
+  const days = Math.floor(seconds / (3600 * 24));
+  const hours = Math.floor((seconds % (3600 * 24)) / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const sec = Math.floor(seconds % 60);
 
-      <div className="timer-section hour">
-        <h3>00</h3>
-        <p>Horas</p>
-      </div>
+  return { days, hours, minutes, sec };
+};
 
-      <div className="timer-section minute">
-        <h3>00</h3>
-        <p>Minutos</p>
-      </div>
+const getTimeLeft = (date) => {
+  if (!date) return 0;
 
-      <div className="timer-section seconds">
-        <h3>00</h3>
-        <p>Segundos</p>
+  const splited = date.split('-');
+  const today = new Date();
+  const eventDate = new Date(splited[0], splited[1] - 1, splited[2]);
+  return Math.abs((today.getTime() - eventDate.getTime()) / 1000);
+};
+
+export const Timer = () => {
+  const [data, fetching, error] = useGet('events');
+  const [time, setTime] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    sec: 0,
+  });
+
+  const { days, hours, minutes, sec } = time;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (data) {
+        const timeLeft = getTimeLeft(data[0].date);
+        const parts = decomposeTime(timeLeft);
+        const newTime = { ...time };
+        Object.assign(newTime, parts);
+        setTime(newTime);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [data]);
+
+  if (fetching || error) return null;
+
+  return (
+    <section className="timer">
+      <div className="timer-content">
+        <div className="timer-section day">
+          <h3>{days < 10 ? `0${days}` : days}</h3>
+          <p>Dias</p>
+        </div>
+
+        <div className="timer-section hour">
+          <h3>{hours < 10 ? `0${hours}` : hours}</h3>
+          <p>Horas</p>
+        </div>
+
+        <div className="timer-section minute">
+          <h3>{minutes < 10 ? `0${minutes}` : minutes}</h3>
+          <p>Minutos</p>
+        </div>
+
+        <div className="timer-section seconds">
+          <h3>{sec < 10 ? `0${sec}` : sec}</h3>
+          <p>Segundos</p>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

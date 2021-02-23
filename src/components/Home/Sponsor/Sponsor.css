@@ -1,0 +1,6 @@
+.sponsor {
+    width: 6rem;
+    height: 6rem;
+    box-shadow: 0 0 0.3rem 0 var(--color-grey);
+    border-radius: 3rem;
+}
