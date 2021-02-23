@@ -2,6 +2,7 @@ import React from 'react';
 import './home.css';
 import { Timer } from '../../components/Layout/Timer/Timer';
 import ComunityList from '../../components/Home/Comunity/CommunityList/CommunityList';
+import SpeakerCarousel from '../../components/Home/SpeakerCarousel/SpeakerCarousel';
 
 export const Home = () => (
   <>
@@ -25,7 +26,7 @@ export const Home = () => (
               aprender en comunidad.
             </p>
           </div>
-          { /* TODO: Carousel de creadores de contenido */ }
+          <SpeakerCarousel />
           { /* TODO: Carousel de sponsors */ }
         </div>
       </section>
