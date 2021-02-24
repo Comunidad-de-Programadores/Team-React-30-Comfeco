@@ -3,6 +3,7 @@ import './home.css';
 import { Timer } from '../../components/Layout/Timer/Timer';
 import ComunityList from '../../components/Home/Comunity/CommunityList/CommunityList';
 import SpeakerCarousel from '../../components/Home/SpeakerCarousel/SpeakerCarousel';
+import SponsorCaroulse from '../../components/Home/SponsorCarousel/SponsorCaroulse';
 
 export const Home = () => (
   <>
@@ -27,6 +28,8 @@ export const Home = () => (
             </p>
           </div>
           <SpeakerCarousel />
+          
+          <SponsorCaroulse />
           { /* TODO: Carousel de sponsors */ }
         </div>
       </section>
