@@ -1,15 +1,15 @@
 import React from 'react';
-import { baseURL } from '../../../../utils/http';
 import './communityItem.css';
 
 export default function Community({ image, name, url }) {
+  const imageUrl = image ? `${image.url}` : '';
   return (
     <div className="community">
       <div className="community-info">
         <img
           className="community-image"
           src={
-            image ? `${baseURL.substr(0, baseURL.length - 1)}${image.url}` : ''
+            imageUrl
           }
           alt="community"
         />
