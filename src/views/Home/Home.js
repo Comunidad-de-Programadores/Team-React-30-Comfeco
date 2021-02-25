@@ -27,13 +27,15 @@ export const Home = () => (
               aprender en comunidad.
             </p>
           </div>
+          <h3 className="speaker-title-center">Ellos ya creen en esta iniciativa:</h3>
           <SpeakerCarousel />
-          
+          <h3 className="sponsors-title">Sponsors</h3>
           <SponsorCaroulse />
-          { /* TODO: Carousel de sponsors */ }
+          
         </div>
       </section>
     </div>
+    <h3 className="timer-title-center">Preparate lo bueno esta por venir</h3>
     <Timer />
   </>
 );
