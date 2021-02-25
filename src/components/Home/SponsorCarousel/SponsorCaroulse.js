@@ -21,6 +21,7 @@ const SponsorCaroulse = () => {
             slidesToShow={4}
             wheel
             arrows
+            centerPadding={100}
           />
         );
       }
