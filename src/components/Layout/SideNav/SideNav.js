@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Facebook from '../../Icons/Facebook';
+import Menu from '../../Icons/Menu';
 import './sidenav.css';
 
 const SideNav = () => {
@@ -19,7 +19,7 @@ const SideNav = () => {
         onClick={() => setIsOpen(true)}
         className="button-open"
       >
-        <Facebook />
+        <Menu />
       </button>
       <div className={style.join(' ')}>
         <div className="side-nav-content">
