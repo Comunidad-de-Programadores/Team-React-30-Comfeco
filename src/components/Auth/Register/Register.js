@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from '../../../validations/auth';
@@ -6,6 +7,7 @@ import { useAuth } from '../../../context/auth';
 import { errorAlert, messageAlert } from '../../../utils/alerts';
 
 export const Register = ({ openModal = (f) => f }) => {
+  const history = useHistory();
   const { register: registerUser } = useAuth();
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(registerSchema),
@@ -22,7 +24,9 @@ export const Register = ({ openModal = (f) => f }) => {
       errorAlert(error);
     } else {
       reset();
-      messageAlert('success', 'Acabas de unirte a Confeco');
+      messageAlert('success', 'Acabas de unirte a Confeco').then(() => {
+        history.push('/home');
+      });
     }
   };
 

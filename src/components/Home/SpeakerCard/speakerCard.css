@@ -1,6 +1,7 @@
 .speaker-card {
     display: inline-block;
     max-width: 25rem;
+    height: 35rem;
     border-radius: 2rem;
     box-shadow: 0 0 1rem 0 var(--color-grey);
     overflow: hidden;

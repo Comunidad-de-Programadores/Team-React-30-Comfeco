@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Login } from '../../components/Auth/Login/Login';
 import { Register } from '../../components/Auth/Register/Register';
 import useModal from '../../hooks/useModal';
 import Logo from '../../assets/images/logo_horizontal.png';
+import { useAuth } from '../../context/auth'
 import './auth.css';
 import TermsModal from '../../components/Modal/TermsModal/TermsModal';
 
 export const Auth = () => {
+  const history = useHistory();
+  const { isLoggedIn } = useAuth();
   const [textButton, setTextButton] = useState('Registrarme');
   const [classButton, setClassButton] = useState('');
 
   const [isOpenModal, openModal, closeModal] = useModal();
+
+  if (isLoggedIn()) {
+    history.push('/home');
+  }
 
   const handleTextButton = () => {
     if (textButton === 'Iniciar Sesión') {

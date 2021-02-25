@@ -10,6 +10,7 @@ const Carousel = ({elements,autoplay,autoplaySpeed,slidesToShow,wheel,arrows}) =
     wheel={wheel}
     centerMode
     arrows={arrows}
+    centerPadding={100}
   >
     {
          elements
