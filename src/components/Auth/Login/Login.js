@@ -23,7 +23,9 @@ export const Login = () => {
       errorAlert(error);
     } else {
       reset();
-      messageAlert('success', 'Acabas de iniciar sesión');
+      messageAlert('success', 'Acabas de iniciar sesión').then(() => {
+          history.push('/home');
+      });
     }
   };
 

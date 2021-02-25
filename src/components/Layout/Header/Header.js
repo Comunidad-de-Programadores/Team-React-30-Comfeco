@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../../context/auth';
-import User from '../User/User';
 
 import './header.css';
 import Logo from '../../../assets/images/logo_horizontal.png';
 import SideNav from '../SideNav/SideNav';
+import UserMenu from './UserMenu/UserMenu';
 
 export const Header = () => {
   const location = useLocation();
@@ -37,7 +37,7 @@ export const Header = () => {
 
       {isLoggedIn() && (
         <div className="header-right">
-          <User />
+          <UserMenu />
         </div>
       )}
 

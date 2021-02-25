@@ -2,7 +2,7 @@
   height: 100%;
   position: fixed;
   width: 75%;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: -75%;
   background-color: var(--color-black);
@@ -48,6 +48,7 @@
 }
 
 .button-close {
+  color: var(--color-white);
   background: none;
   border: none;
   outline: none;

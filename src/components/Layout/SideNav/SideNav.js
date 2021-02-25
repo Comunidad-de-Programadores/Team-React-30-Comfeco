@@ -28,7 +28,7 @@ const SideNav = () => {
             onClick={() => setIsOpen(false)}
             className="button-close"
           >
-            <Facebook />
+            &#10006;
           </button>
           <div className="links">
             <Link to="/home" onClick={() => setIsOpen(false)}>
