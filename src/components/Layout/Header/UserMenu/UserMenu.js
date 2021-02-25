@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../../../context/auth';
+import ArrowDown from '../../../Icons/Arrows/ArrowDown';
 import './userMenu.css';
 
 const UserMenu = () => {
@@ -19,7 +20,7 @@ const UserMenu = () => {
       <div className="user-dropdown">
         <div className="user-dropdown-box">
           <span>{nick}</span>
-          <span>&#8595;</span>
+          <ArrowDown />
         </div>
         <div className="user-dropdown-content">
           <span

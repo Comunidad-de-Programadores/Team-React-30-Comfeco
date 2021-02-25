@@ -23,6 +23,7 @@ const SpeakerCarousel = () => {
         slidesToShow={1}
         wheel
         arrows={false}
+        centerPadding={0}
       />
     );
   }

@@ -1,7 +1,15 @@
-import React from 'react'
+import React from 'react';
 import Slider from 'infinite-react-carousel';
 
-const Carousel = ({elements,autoplay,autoplaySpeed,slidesToShow,wheel,arrows}) => (
+const Carousel = ({
+  elements,
+  autoplay,
+  autoplaySpeed,
+  slidesToShow,
+  wheel,
+  arrows,
+  centerPadding
+}) => (
   <Slider
     dots
     autoplay={autoplay}
@@ -10,13 +18,10 @@ const Carousel = ({elements,autoplay,autoplaySpeed,slidesToShow,wheel,arrows}) =
     wheel={wheel}
     centerMode
     arrows={arrows}
-    centerPadding={100}
+    centerPadding={centerPadding}
   >
-    {
-         elements
-    }
+    {elements}
   </Slider>
-        
-    )
+);
 
-export default Carousel
+export default Carousel;
