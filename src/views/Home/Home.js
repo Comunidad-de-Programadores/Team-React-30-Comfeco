@@ -35,7 +35,6 @@ export const Home = () => (
         </div>
       </section>
     </div>
-    <h3 className="timer-title-center">Preparate lo bueno esta por venir</h3>
     <Timer />
   </>
 );
