@@ -35,6 +35,15 @@
   margin: 5rem 0;
 }
 
+.speaker-title-center{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.sponsors-title{
+  margin-top:2rem;
+  margin-left:7rem;
+}
+
 @media screen and (min-width: 375px) {
   .home {
     padding: 5% 5%;

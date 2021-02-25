@@ -1,6 +1,7 @@
 .timer {
   padding: 2rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 20rem;
@@ -29,6 +30,13 @@
 .timer-section p {
   font-size: 1.4rem;
   color: var(--color-yellow);
+}
+.timer-title-center {
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--color-white);
+  text-align: center;
+  margin-top: 5rem;
 }
 
 @media screen and (min-width: 400px) {

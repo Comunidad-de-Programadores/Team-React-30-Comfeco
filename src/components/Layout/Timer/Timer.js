@@ -50,6 +50,7 @@ export const Timer = () => {
 
   return (
     <section className="timer">
+      <h3 className="timer-title-center">Preparate lo bueno esta por venir</h3>
       <div className="timer-content">
         <div className="timer-section day">
           <h3>{days < 10 ? `0${days}` : days}</h3>
