@@ -18,7 +18,7 @@ const SponsorCaroulse = () => {
           <Carousel
             elements={sponsorCards}
             autoplay={false}
-            slidesToShow={4}
+            slidesToShow={3}
             wheel
             arrows
             centerPadding={100}
