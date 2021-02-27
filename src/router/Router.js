@@ -5,24 +5,34 @@ import PasswordRecovery from '../views/Auth/PasswordRecovery/PasswordRecovery';
 import PasswordReset from '../views/Auth/PasswordReset/PasswordReset';
 import { Home } from '../views/Home/Home';
 import PrivateRoute from './PrivateRoute';
+import Error from '../views/Error/Error';
 
 const Router = () => (
   <BrowserRouter>
-    <Layout>
-      <Switch>
-        <Route exact path="/">
-          <Redirect to="/auth" />
-        </Route>
-        <Route path="/auth" component={Auth} />
-        <Route path="/password-reset">
+    <Switch>
+      <Route>
+        <Layout>
           <Switch>
-            <Route exact path="/password-reset" component={PasswordRecovery} />
-            <Route path="/password-reset/reset" component={PasswordReset} />
+            <Route exact path="/">
+              <Redirect to="/auth" />
+            </Route>
+            <Route path="/auth" component={Auth} />
+            <Route path="/password-reset">
+              <Switch>
+                <Route exact path="/password-reset" component={PasswordRecovery} />
+                <Route path="/password-reset/reset" component={PasswordReset} />
+              </Switch>
+            </Route>
+            <PrivateRoute exact path="/home" component={Home} />
+            <Route exact path="*" component={Error} />
           </Switch>
-        </Route>
-        <PrivateRoute exact path="/home" component={Home} />
-      </Switch>
-    </Layout>
+        </Layout>
+      </Route>
+      
+    </Switch>
+    
+    
+    
   </BrowserRouter>
 );
 

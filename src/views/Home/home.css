@@ -42,6 +42,8 @@
 .sponsors-title{
   margin-top:2rem;
   margin-left:7rem;
+  font-size: 2rem;
+  color: var(--color-violet);
 }
 
 @media screen and (min-width: 375px) {
