@@ -6,6 +6,7 @@ import PasswordReset from '../views/Auth/PasswordReset/PasswordReset';
 import { Home } from '../views/Home/Home';
 import PrivateRoute from './PrivateRoute';
 import Error from '../views/Error/Error';
+import Profile from '../views/Profile/Profile';
 
 const Router = () => (
   <BrowserRouter>
@@ -19,20 +20,21 @@ const Router = () => (
             <Route path="/auth" component={Auth} />
             <Route path="/password-reset">
               <Switch>
-                <Route exact path="/password-reset" component={PasswordRecovery} />
+                <Route
+                  exact
+                  path="/password-reset"
+                  component={PasswordRecovery}
+                />
                 <Route path="/password-reset/reset" component={PasswordReset} />
               </Switch>
             </Route>
             <PrivateRoute exact path="/home" component={Home} />
+            <PrivateRoute exact path="/profile" component={Profile} />
             <Route exact path="*" component={Error} />
           </Switch>
         </Layout>
       </Route>
-      
     </Switch>
-    
-    
-    
   </BrowserRouter>
 );
 
