@@ -20,7 +20,12 @@ export const Login = () => {
     const { error } = await login({ identifier, password });
 
     if (error) {
-      errorAlert(error);
+      // console.log(typeof(error)) //es de tipo object
+      if(typeof error.data==='undefined'){
+        errorAlert(false);
+      }else{
+        errorAlert(error);
+      }
     } else {
       reset();
       messageAlert('success', 'Acabas de iniciar sesión').then(() => {
