@@ -21,6 +21,7 @@ export const Login = () => {
 
     if (error) {
       // console.log(typeof(error)) //es de tipo object
+      // Agregue esta conficional para prevenir un crasheo al recibir una respuesta indefinida por parte dle servidor
       if(typeof error.data==='undefined'){
         errorAlert(false);
       }else{
