@@ -8,6 +8,8 @@ const send = async (endpoint, data) => {
     token: jwt,
     user: {
       nick: user.username,
+      // eslint-disable-next-line no-underscore-dangle
+      id: user._id
     },
   };
 };
