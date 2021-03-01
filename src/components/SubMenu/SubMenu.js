@@ -6,10 +6,18 @@ export const SubMenu = () => (
   <>
     <div className="rectangulo">
       <botton className="miperfilbotton">
-        Mi Perfil
+        <span className="letras">
+          Mi Perfil
+        </span>
       </botton>
       <botton className="insigniasbotton">
         Insignias
+      </botton>
+      <botton className="gruposbotton">
+        Grupos
+      </botton>
+      <botton className="eventosbotton">
+        Eventos
       </botton>
     </div>
   </>

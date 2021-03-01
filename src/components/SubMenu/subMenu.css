@@ -13,8 +13,17 @@
     height: 69.57px;
     left: 387.23px;
     top: 34.96px;
+    border-radius: 5px;
     background: #908F8F;
 }
+/* esto lo modifico al final */
+
+  
+.miperfilbotton:hover {
+    background-color: #4CAF50;
+    color:white;
+  } 
+
 
 .insigniasbotton{
     position: absolute;
@@ -22,6 +31,58 @@
     height: 69.57px;
     left: 680.87px;
     top: 34.96px;
+    border-radius: 5px;
     background: #908F8F;
+
+}
+
+.gruposbotton{
+    position: absolute;
+    width: 264.63px;
+    height: 69.57px;
+    left: 974.5px;
+    top: 34.96px;
+    border-radius: 5px;
+    background: #908F8F;
+}
+
+.eventosbotton{
+    position: absolute;
+    width: 264.63px;
+    height: 69.57px;
+    left: 1268.13px;
+    top: 34.96px;
+    border-radius: 5px;
+    background: #908F8F;
+}
+
+/* .letras{
+    position: absolute;
+    width: 73.46px;
+    height: 25.03px;
+    left: 513.22px;
+    top: 58.05px;
+    
+
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 29px;
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+} */
+
+.icono{
+    position: absolute;
+    left: 12.5%;
+    right: 12.5%;
+    top: 8.33%;
+    bottom: 12.5%;
+
+    background: #000000;
 
 }
