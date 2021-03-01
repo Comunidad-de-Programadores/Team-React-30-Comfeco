@@ -2,9 +2,9 @@ import React from 'react';
 
 import './footer.css';
 import Logo from '../../../assets/images/logo_horizontal.png';
-import Facebook from '../../Icons/Facebook';
-import Discord from '../../Icons/Discord';
-import Youtube from '../../Icons/Youtube';
+import Facebook from '../../Icons/Logos/Facebook';
+import Discord from '../../Icons/Logos/Discord';
+import Youtube from '../../Icons/Logos/Youtube';
 
 const Footer = () => (
   <footer className="footer">
