@@ -3,8 +3,8 @@ import './profile.css'
 
 export default function Profile() {
     return (
-      <div className="profile">
-        Profile View
+      <div>
+        Profile
       </div>
     )
 }
