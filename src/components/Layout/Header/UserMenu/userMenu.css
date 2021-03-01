@@ -14,7 +14,15 @@
     display: inline-block;
 }
 
+.user-icon-box {
+    background-color: var(--color-white);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 5rem;
+}
+
 .user-dropdown-box {
+    color: var(--color-white);
     border-radius: 1rem;
     display: flex;
     justify-content: space-between;
