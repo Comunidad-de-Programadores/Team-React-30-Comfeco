@@ -14,6 +14,10 @@ const UserMenu = () => {
     history.push('/auth');
   };
 
+  const profileHandler = () => {
+    history.push('/profile');
+  };
+
   return (
     <div className="user-menu">
       <span className="user-notification">&#128276;</span>
@@ -23,6 +27,14 @@ const UserMenu = () => {
           <ArrowDown />
         </div>
         <div className="user-dropdown-content">
+          <span
+            onClick={profileHandler}
+            role="button"
+            tabIndex={0}
+            onKeyDown={profileHandler}
+          >
+            Perfil
+          </span>
           <span
             onClick={logoutHandler}
             role="button"
