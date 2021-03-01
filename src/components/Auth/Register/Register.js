@@ -21,7 +21,11 @@ export const Register = ({ openModal = (f) => f }) => {
     const { error } = await registerUser({ username, email, password });
 
     if (error) {
-      errorAlert(error);
+      if(typeof error.data==='undefined'){
+        errorAlert(false);
+      }else{
+        errorAlert(error);
+      }
     } else {
       reset();
       messageAlert('success', 'Acabas de unirte a Confeco').then(() => {

@@ -20,7 +20,13 @@ export const Login = () => {
     const { error } = await login({ identifier, password });
 
     if (error) {
-      errorAlert(error);
+      // console.log(typeof(error)) //es de tipo object
+      // Agregue esta conficional para prevenir un crasheo al recibir una respuesta indefinida por parte dle servidor
+      if(typeof error.data==='undefined'){
+        errorAlert(false);
+      }else{
+        errorAlert(error);
+      }
     } else {
       reset();
       messageAlert('success', 'Acabas de iniciar sesión').then(() => {
