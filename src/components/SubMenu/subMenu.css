@@ -1,0 +1,27 @@
+.rectangulo{
+    position: relative;
+    width: 1920px;
+    height: 137.5px;
+    left: 0px;
+    top: 1px;
+    
+    background: #EEEEEE;
+}
+.miperfilbotton{
+    position: absolute;
+    width: 264.63px;
+    height: 69.57px;
+    left: 387.23px;
+    top: 34.96px;
+    background: #908F8F;
+}
+
+.insigniasbotton{
+    position: absolute;
+    width: 264.63px;
+    height: 69.57px;
+    left: 680.87px;
+    top: 34.96px;
+    background: #908F8F;
+
+}
