@@ -9,7 +9,7 @@ const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use(
+/* instance.interceptors.request.use(
   (config) => {
     const userData = sessionStorage.getItem('userData');
     if (userData) {
@@ -21,6 +21,6 @@ instance.interceptors.request.use(
   (error) => {
     Promise.reject(error);
   }
-);
+); */
 
 export default instance;
