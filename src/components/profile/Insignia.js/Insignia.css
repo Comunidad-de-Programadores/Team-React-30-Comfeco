@@ -1,68 +1,66 @@
-#insignias{
-    display: flex;
-    width: 1014px;
-    height: 150px;
-    padding: 23px;
-    background: #C4C4C4;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-basis: 70%;
-    margin-left: 5%;
+#insignias {
+  display: flex;
+  width: 1014px;
+  height: 150px;
+  padding: 23px;
+  background: #c4c4c4;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 70%;
+  margin-left: 5%;
 }
 
-#insignias-image{
-    display: inline-flex;
-    justify-content: center;
-    flex-basis: 82%;
-
+#insignias-image {
+  display: inline-flex;
+  justify-content: center;
+  flex-basis: 82%;
 }
 
-#insignias-title{
-    font-weight: bold;
-    font-size: 18px;
+#insignias-title {
+  font-weight: bold;
+  font-size: 18px;
 }
 
-#insignias-image img{
-    border-radius: 999px;
-    margin-left: 6%;
+#insignias-image img {
+  border-radius: 999px;
+  margin-left: 6%;
 }
 
-
-#activity{
-    display:flex;
-    width: 1014px;
-    height: 86px;
-    background: #FCFCFC;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    flex-direction: row;
-    flex-basis: 80%;
-    padding: 23px;
-    margin-left: 5%;
+#activity {
+  display: flex;
+  width: 1014px;
+  height: 86px;
+  background: #fcfcfc;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: row;
+  flex-basis: 80%;
+  padding: 23px;
+  margin-left: 5%;
 }
 
-#activity-title{
-    margin-Left: 5%;
-    margin-top: 7%;
-    font-size: 18px;
-    font-weight: bold;
+#activity-title {
+  margin-left: 5%;
+  margin-top: 7%;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-#activity-text{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 14px;
+#activity-text {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
 }
 
-#activity-calendar{
-    display: flex;
-    justify-content: end;
-    flex-basis: 68%;
+#activity-calendar {
+  display: flex;
+  justify-content: end;
+  flex-basis: 68%;
 }
 
-#container{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-left: 5%;
+#container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 5%;
 }
