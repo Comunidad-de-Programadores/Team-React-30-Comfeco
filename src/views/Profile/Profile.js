@@ -1,7 +1,6 @@
 import React from 'react'
 
 import './profile.css'
-import {SubMenu} from '../../components/SubMenu/SubMenu'
 import SelectorProvider from '../../context/selector'
 import ViewSelector from '../../components/ViewSelector/ViewSelector'
 import ViewItem from '../../components/ViewSelector/ViewItem/ViewItem'
@@ -10,6 +9,7 @@ import EditProfile from '../../components/Profile/sections/EditProfile/EditProfi
 import Groups from '../../components/Profile/sections/Groups/Groups'
 import Events from '../../components/Profile/sections/Events/Events'
 import Medals from '../../components/Profile/sections/Medals/Medals'
+import {SubMenu} from '../../components/Profile/SubMenu/SubMenu'
 
 export default function Profile() {
     return (
