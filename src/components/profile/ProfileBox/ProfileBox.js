@@ -1,51 +1,57 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useGet from '../../../hooks/useGet';
+
 import './ProfileBox.css';
 
-import React from 'react';
+import Facebook from '../../Icons/Logos/Facebook';
+import Github from '../../Icons/Logos/Github';
+import Twitter from '../../Icons/Logos/Twitter';
+import LinkedIn from '../../Icons/Logos/LinkedIn';
 
-export const ProfileBox = () => (
-  <>
-    <div id="container">
-      <div id="profile">
-        <a id="profile-edit" href="/">
-          Editar Perfil
-        </a>
-        <br />
-        <div id="profile-photo">
-          <img src="https://via.placeholder.com/190x190" alt="placeholder" />
-        </div>
-        <h5 id="profile-title">Nick del usuario</h5>
-        <p id="profile-job">Frontend Developer/ UI/UX</p>
-        <p id="profile-description">
-          Lorem Ipsum es simplemente el texto de relleno de las imprentas y
-          archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de
-          las industrias desde el año 1500, cuando un impresor (N. del T.
-          persona que se dedica a la imprenta) desconocido usó una galería de
-          textos y los mezcló de tal manera que logró hacer
-        </p>
-        <hr id="profile-line" />
-        <div id="profile-image">
-          <img
-            className="profile-image"
-            src="https://via.placeholder.com/40x40"
-            alt="placeholder" 
-          />
-          <img
-            className="profile-image"
-            src="https://via.placeholder.com/40x40"
-            alt="placeholder" 
-          />
-          <img
-            className="profile-image"
-            src="https://via.placeholder.com/40x40"
-            alt="placeholder" 
-          />
-          <img
-            className="profile-image"
-            src="https://via.placeholder.com/40x40"
-            alt="placeholder" 
-          />
+export const ProfileBox = () => {
+  const [data] = useGet('users/me');
+  return (
+    <>
+      <div id="container">
+        <div id="profile">
+          <a id="profile-edit" href="/">
+            Editar Perfil
+          </a>
+          <br />
+          <div id="profile-photo">
+            <img src={data.image?.url} alt={data.username || ''} />
+          </div>
+          <h5 id="profile-title">{data.username || ''}</h5>
+          <p id="profile-job">{data.knowledgeArea || ''}</p>
+          <p id="profile-description">
+            { data.bibliography || ''}
+          </p>
+          <hr id="profile-line" />
+          <div id="profile-image">
+            {data.facebookAccount  && (
+            <Link to={data.facebookAccount}>
+              <Facebook />
+            </Link>
+          )}
+            {data.gitHubAccount && (
+            <Link to={data.gitHubAccount}>
+              <Github />
+            </Link>
+          )}
+            {data.linkedinAccount && (
+            <Link to={data.linkedinAccount}>
+              <LinkedIn />
+            </Link>
+          )}
+            {data.twitterAccount && (
+            <Link to={data.twitterAccount}>
+              <Twitter />
+            </Link>
+          )}
+          </div>
         </div>
       </div>
-    </div>
-  </>
-);
+    </>
+)
+};
