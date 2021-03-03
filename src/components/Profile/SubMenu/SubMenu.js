@@ -65,6 +65,7 @@ export const SubMenu = () => {
             <span>Eventos</span>
           </button>
         </div>
+        <hr />
       </div>
     </>
   );

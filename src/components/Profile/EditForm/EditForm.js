@@ -3,15 +3,12 @@ import './EditForm.css';
 
 import ArrowLeft from '../../Icons/Arrows/ArrowLeft';
 import Form from './Form/Form';
+import { useSelector } from '../../../context/selector';
 
 const EditForm = () => {
-  const onSubmitHandler = (data) => {
-    console.log(data);
-  };
+  const { goTo } = useSelector();
 
-  const returnHandler = () => {
-    console.log('going back');
-  };
+  const returnHandler = () => goTo('profile-start');
 
   return (
     <>
@@ -24,7 +21,7 @@ const EditForm = () => {
       >
         <ArrowLeft />
       </span>
-      <Form onSubmit={onSubmitHandler} />
+      <Form />
     </>
   );
 };

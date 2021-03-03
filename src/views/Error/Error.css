@@ -6,7 +6,7 @@
   font-size: 100%;
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
-  height:70vh;
+  min-height: 92vh;
   transition:all 0.6s;
 }
 
