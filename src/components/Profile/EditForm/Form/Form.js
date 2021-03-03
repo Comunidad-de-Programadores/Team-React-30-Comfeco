@@ -1,7 +1,11 @@
+/* eslint-disable prefer-const */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Form.css';
 import { useForm } from 'react-hook-form';
+import useGet from '../../../../hooks/useGet';
+import http from '../../../../utils/http';
+import { useAuth } from '../../../../context/auth';
 
 import User from '../../../Icons/User';
 import Facebook from '../../../Icons/Logos/Facebook';
@@ -9,8 +13,36 @@ import Github from '../../../Icons/Logos/Github';
 import Twitter from '../../../Icons/Logos/Twitter';
 import LinkedIn from '../../../Icons/Logos/LinkedIn';
 
-const Form = ({ onSubmit = (f) => f }) => {
-  const { register, handleSubmit } = useForm();
+/* const Form = ({ onSubmit = (f) => f }) => { */
+const Form = () => {
+  const { user } = useAuth();
+  const [data] = useGet('users/me');
+  const { register, handleSubmit, reset } = useForm();
+  useEffect(() => {
+    reset({
+      username: data.username || '',
+      email: data.email || '',
+      gender: data.gender || '',
+      birthDate: data.birthDate || '',
+      country: data.country || '',
+      facebookAccount: data.facebookAccount || '',
+      githubAccount: data.githubAccount || '',
+      linkedInAccount: data.linkedInAccount || '',
+      twitterAccount: data.twitterAccount || '',
+      biography: data.bibliography || '',
+      knowledgeArea: data.knowledgeArea || '',
+    });
+  }, [data]);
+
+  const onSubmit = (formData) => {
+    const formDataCopy = { ...formData };
+    Object.keys(formDataCopy).forEach((key) => {
+      if (formDataCopy[key] === '') {
+        delete formDataCopy[key];
+      }
+    });
+    http.put(`users/${user.id}`, formDataCopy);
+  };
 
   return (
     <div className="edit-form">
@@ -20,11 +52,11 @@ const Form = ({ onSubmit = (f) => f }) => {
         </div>
         <div className="form-row">
           <div className="form-control">
-            <label htmlFor="nick">Nick</label>
+            <label htmlFor="username">Nick</label>
             <input
               type="text"
-              name="nick"
-              id="nick"
+              name="username"
+              id="username"
               ref={register}
               placeholder="nick"
             />

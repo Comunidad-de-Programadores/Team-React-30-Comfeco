@@ -43,7 +43,7 @@ const useAuthentication = () => {
     return token && !isExpired(token);
   };
 
-  return { login, register, logout, isLoggedIn, user: userData?.user };
+  return { login, register, logout, isLoggedIn, user: userData?.user};
 };
 
 export default useAuthentication;
