@@ -20,9 +20,9 @@ export const Login = () => {
     const { error } = await login({ identifier, password });
 
     if (error) {
-      // console.log(typeof(error)) //es de tipo object
+      console.log(error.response) // es de tipo object
       // Agregue esta conficional para prevenir un crasheo al recibir una respuesta indefinida por parte dle servidor
-      if(typeof error.data==='undefined'){
+      if(typeof error.response==='undefined'){
         errorAlert(false);
       }else{
         errorAlert(error);

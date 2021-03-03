@@ -21,7 +21,7 @@ export const Register = ({ openModal = (f) => f }) => {
     const { error } = await registerUser({ username, email, password });
 
     if (error) {
-      if(typeof error.data==='undefined'){
+      if(typeof error.response==='undefined'){
         errorAlert(false);
       }else{
         errorAlert(error);
