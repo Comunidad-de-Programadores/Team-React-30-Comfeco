@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 .rectangulo{
     position: relative;
     width: 1920px;
@@ -44,6 +46,7 @@
     top: 34.96px;
     border-radius: 5px;
     background: #908F8F;
+
 }
 
 .eventosbotton{
@@ -54,35 +57,27 @@
     top: 34.96px;
     border-radius: 5px;
     background: #908F8F;
+  
+    
 }
 
-/* .letras{
-    position: absolute;
-    width: 73.46px;
-    height: 25.03px;
-    left: 513.22px;
-    top: 58.05px;
-    
-
+.letras{
     font-family: Nunito;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
-    line-height: 29px;
-
-    display: flex;
-    align-items: center;
-
+    line-height: 85px;
+    
+    position: absolute;
+    top: -9px;
+    left: 130px;
     color: #000000;
-} */
+}
+
 
 .icono{
     position: absolute;
-    left: 12.5%;
-    right: 12.5%;
-    top: 8.33%;
-    bottom: 12.5%;
-
-    background: #000000;
-
+    top: 18px;
+    left: 75px;
+    font-size:30px
 }
