@@ -26,8 +26,8 @@ const Form = () => {
       birthDate: data.birthDate || '',
       country: data.country || '',
       facebookAccount: data.facebookAccount || '',
-      githubAccount: data.githubAccount || '',
-      linkedInAccount: data.linkedInAccount || '',
+      gitHubAccount: data.gitHubAccount || '',
+      linkedinAccount: data.linkedinAccount || '',
       twitterAccount: data.twitterAccount || '',
       biography: data.bibliography || '',
       knowledgeArea: data.knowledgeArea || '',
@@ -159,7 +159,7 @@ const Form = () => {
             </label>
             <input
               type="text"
-              name="githubAccount"
+              name="gitHubAccount"
               id="githubAccount"
               ref={register}
               placeholder="github"
@@ -176,7 +176,7 @@ const Form = () => {
             </label>
             <input
               type="text"
-              name="linkedInAccount"
+              name="linkedinAccount"
               id="linkedInAccount"
               ref={register}
               placeholder="linkedIn"
