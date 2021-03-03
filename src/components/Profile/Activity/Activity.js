@@ -1,8 +1,8 @@
-import './Actividad.css';
+import './activity.css';
 
 import React from 'react';
 
-export const Actividad = () => (
+export const Activity = () => (
   <>
     <h5 id="activity-title">Actividad Reciente</h5>
     <div id="activity">
