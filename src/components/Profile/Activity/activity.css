@@ -1,17 +1,17 @@
 #activity {
     display: flex;
-    width: 1014px;
+    width: 177%;
     height: 86px;
     background: #fcfcfc;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     flex-direction: row;
     flex-basis: 80%;
     padding: 23px;
-    margin-left: 5%;
+    /*margin-left: 5%;*/
   }
   
   #activity-title {
-    margin-left: 5%;
+    /*margin-left: 5%;*/
     margin-top: 7%;
     font-size: 18px;
     font-weight: bold;
@@ -30,9 +30,42 @@
     flex-basis: 68%;
   }
   
-  #container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-left: 5%;
+
+  @media screen and (max-width: 1144px) {
+    #activity{
+        width: 289%;
+        margin-left: 18%;
+    
+    }
+
+    #activity-title{
+      margin-left: 18%;
+      margin-top: 15%;
+  
   }
+}
+
+@media screen and (max-width: 695px) {
+
+  #activity-title{
+    font-size: 16px;
+
+}
+}
+
+
+@media screen and (max-width: 609px) {
+
+  #activity-title{
+    font-size: 14px;
+
+}
+}
+
+@media screen and (max-width: 523px) {
+
+  #activity-title{
+    min-width: 200%;
+
+}
+}

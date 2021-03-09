@@ -40,7 +40,7 @@ export const SubMenu = () => {
           </span>
         </div>
         <div className={classes.join(' ')}>
-          <button id="profile" type="button" className="submenu-button" onClick={() => goTo('profile-start')}>
+          <button id="profileSubMenu" type="button" className="submenu-button" onClick={() => goTo('profile-start')}>
             <span className="submenu-button-icon">
               <Person />
             </span>

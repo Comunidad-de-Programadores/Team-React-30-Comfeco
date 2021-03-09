@@ -2,3 +2,58 @@
     min-height: 92vh;
     padding: 5rem;
 }
+
+#principal {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4%;
+    margin-left: 1%;
+    margin-bottom: 4%;
+    margin-right: 4%;
+}
+
+#insignias-column{
+    margin-left: 4%;
+
+}
+
+#events-column{
+    margin-left: 28%;
+
+}
+
+
+@media screen and (max-width: 1488px) {
+    #events-column{
+        margin-left: 34%;
+    
+    }
+  }
+
+  @media screen and (max-width: 1368px) {
+    #events-column{
+        margin-left: 34%;
+    
+    }
+  }
+
+  @media screen and (max-width: 1218px) {
+    #insignias-column{
+        width: 28%;
+    
+    }
+  }
+
+  @media screen and (max-width: 1144px) {
+    #principal{
+        flex-direction: column;
+    
+    }
+
+
+    #events-column {
+        margin-left: 9%;
+    }
+
+
+  }
