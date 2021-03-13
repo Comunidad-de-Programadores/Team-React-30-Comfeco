@@ -1,0 +1,35 @@
+.group-card {
+    width: 25rem;
+    height: 35rem;
+    border: 0.1rem solid var(--color-grey);
+    box-shadow: 0 0 1rem var(--color-grey);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.group-image {
+    width: 100%;
+    min-height: 25rem;
+}
+
+.group-language {
+    margin: 0;
+    margin-top: 0.5rem;
+    width: 20rem;
+    background-color: var(--color-violet);
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: var(--color-white);
+    padding: 0.2rem 0;
+    padding-left: 0.5rem;
+}
+
+.group-name {
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
