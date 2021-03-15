@@ -22,7 +22,7 @@
   font-weight: bold;
   font-size: 16px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 #profile-photo {
