@@ -1,5 +1,11 @@
 import React from 'react';
+import GroupsComponent from '../../Groups/GroupsComponent';
 
-const Groups = () => <div>Groups component</div>;
+
+const Groups = () => (
+  <div>
+    <GroupsComponent />
+  </div>
+);
 
 export default Groups;
