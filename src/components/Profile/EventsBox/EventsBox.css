@@ -1,0 +1,58 @@
+#Events-box {
+    display: flex;
+    width: 118%;
+    padding: 23px;
+    background: #c4c4c4;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 20%;
+  }
+
+  #Events-title{
+    display: inline-flex;
+    justify-content: space-between;
+  }
+  
+  #Events-more {
+    color: #636bfb;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  
+  @media screen and (max-width: 1368px) {
+    #Events-title{
+        display: block;
+        justify-content: none;
+    
+    }
+
+    #Events-more{
+        justify-content: start;
+        padding-top: 10%;
+    
+    }
+  }
+
+
+@media screen and (max-width: 1144px) {
+    #Events-title{
+        display: inline-flex;
+        justify-content: space-between;
+    
+    }
+
+    #Events-box{
+        margin-top: 6%;
+        width: 89%;
+    }
+
+    #Events-more{
+        padding-top: 0px;
+        justify-content: end;
+    }
+}

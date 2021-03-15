@@ -7,7 +7,7 @@
 
 #profile {
   display: flex;
-  width: 361px;
+  width: 100%;
   padding: 23px;
   background: #c4c4c4;
   flex-direction: column;
@@ -22,7 +22,7 @@
   font-weight: bold;
   font-size: 16px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 #profile-photo {
@@ -66,4 +66,26 @@
 #profile-line {
   border: 1px solid black;
   width: 100%;
+}
+
+
+@media screen and (max-width: 1322px) {
+  
+  #profile-edit{
+    font-size: 14px;
+  }
+
+
+  
+}
+
+@media screen and (max-width: 1144px) {
+
+  #profile{
+      width: 80%;
+      margin: 0 auto;
+  }
+
+
+  
 }
