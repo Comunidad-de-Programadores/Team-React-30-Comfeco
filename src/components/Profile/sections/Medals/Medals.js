@@ -1,5 +1,11 @@
 import React from 'react';
+import MedalsComponent from '../../Medals/MedalsComponent/MedalsComponent';
 
-const Medals = () => <div>Medals component</div>;
+
+const Medals = () => (
+  <div>
+    <MedalsComponent />
+  </div>
+);
 
 export default Medals;
