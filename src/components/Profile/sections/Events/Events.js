@@ -1,11 +1,16 @@
-import React from 'react';
-import EventsComponent from '../../EventsBox/EventsComponent/EventsComponent';
+import React ,{useState} from 'react';
+import useModal from '../../../../hooks/useModal';
+import EventModal from "../../../Modal/EventModal/EventModal";
 
+const Events = () => {
+    const [isOpenModal, openModal, closeModal] = useModal();
+    const [eventId, setEventId] = useState(null);
 
-const Events = () => (
-  <div>
-    <EventsComponent />
-  </div>
-);
-
+    const openModalHandle = (id) => {
+        setEventId(id);
+        openModal();
+    }
+    if (isOpenModal) return <EventModal closeModal={closeModal} isOpenModal={isOpenModal} eventId={eventId} />
+     
+};
 export default Events;
