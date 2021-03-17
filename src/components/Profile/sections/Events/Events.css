@@ -53,8 +53,6 @@ img {
     overflow: hidden;
     position: relative;
     transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
-    height: 200px;
-    width: 486px;
   }
   .card__image::before {
     content: "";
@@ -68,9 +66,6 @@ img {
     }
   }
 
-  .card__image--Events {
-    background-image: url(https://via.placeholder.com/486x200);
-  }
   
   .card__title {
     color: black;

@@ -1,32 +1,69 @@
-import React from 'react';
-import './Medals.css';
+/* eslint-disable react/jsx-props-no-spreading */
 
-const Medals = () => (
-  <div>
-    <ul className="cards">
-      <li className="cards__item">
-        <div className="card">
-          <div className="card__image__Medals card__image--fence" />
-          <div className="card__content">
-            <div className="card__title">Flex</div>
-            <div className="card__subtitle">Descripcion</div>
-            <p className="card__text">
-              This is the shorthand for flex-grow, flex-shrink and flex-basis
-              combined. The second and third parameters (flex-shrink and
-              flex-basis) are optional. Default is 0 1 auto
-            </p>
-            <hr />
-            <div className="card__subtitle">Descripcion</div>
-            <p className="card__text">
-              This is the shorthand for flex-grow, flex-shrink and flex-basis
-              combined. The second and third parameters (flex-shrink and
-              flex-basis) are optional. Default is 0 1 auto
-            </p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-);
+import React, { useState } from 'react';
+import './Medals.css';
+import Medal from './Medal';
+
+const Medals = () => {
+  const [data] = useState([
+    {
+      id: 1,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 2,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 3,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 4,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 5,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+  ]);
+
+  const [dataCopy] = useState(data);
+
+  return (
+    <div>
+      <ul className="cards">
+        {dataCopy.map((medal) => (
+          <Medal key={medal.id} {...medal} />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default Medals;
