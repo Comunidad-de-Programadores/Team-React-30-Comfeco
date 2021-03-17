@@ -2,7 +2,7 @@ import React from 'react';
 import './profileStart.css';
 import Activity from '../../Activity/Activity';
 import ProfileBox from '../../ProfileBox/ProfileBox';
-import Medal from '../../insignias/Medals';
+import Medal from '../../Medals/Medals';
 import EventsBox from '../../EventsBox/EventsBox';
 
 const ProfileStart = () => (

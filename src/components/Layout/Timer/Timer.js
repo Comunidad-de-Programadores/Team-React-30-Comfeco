@@ -32,10 +32,12 @@ export const Timer = () => {
 
   const { days, hours, minutes, sec } = time;
 
+  // const nextEvent = data.filter(event => event.isNext === true);
+    
   useEffect(() => {
     const interval = setInterval(() => {
       if (data && data.length > 0) {
-        const timeLeft = getTimeLeft(data[0].date);
+        const timeLeft = getTimeLeft(data[0].date);// Cambiar por nexEvent
         const parts = decomposeTime(timeLeft);
         const newTime = { ...time };
         Object.assign(newTime, parts);
