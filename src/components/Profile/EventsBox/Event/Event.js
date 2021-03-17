@@ -1,5 +1,5 @@
 import React from 'react';
-import './Events.css';
+import './Event.css';
 
 const Event = ({ img, description }) => (
   <li className="cards__item">

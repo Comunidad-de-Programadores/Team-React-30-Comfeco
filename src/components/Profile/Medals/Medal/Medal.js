@@ -1,5 +1,5 @@
 import React from 'react';
-import './Medals.css';
+import './Medal.css';
 
 const Medal = ({ img, name, description, descriptionTwo }) => (
   <li className="cards__item">

@@ -1,13 +1,69 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-import './MedalsComponent.css';
+/* eslint-disable react/jsx-props-no-spreading */
 
-const MedalsComponent = () => {
-  render(
+import React, { useState } from 'react';
+import './MedalsComponent.css';
+import Medal from '../Medal/Medal';
+
+const Medals = () => {
+  const [data] = useState([
+    {
+      id: 1,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 2,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 3,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 4,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+    {
+      id: 5,
+      img: 'https://via.placeholder.com/90x90',
+      name: 'Sociable',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+      descriptionTwo:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+    },
+  ]);
+
+  const [dataCopy] = useState(data);
+
+  return (
     <div>
-      <h3>esto es una prueba</h3>
+      <ul className="cards">
+        {dataCopy.map((medal) => (
+          <Medal key={medal.id} {...medal} />
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default MedalsComponent;
+export default Medals;
