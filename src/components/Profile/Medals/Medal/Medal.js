@@ -1,11 +1,11 @@
 import React from 'react';
 import './Medal.css';
 
-const Medal = ({ img, name, description, descriptionTwo }) => (
+const Medal = ({ image, name, description, requirement }) => (
   <li className="cards__item">
     <div className="card">
       <img
-        src={img}
+        src={image.url}
         alt="insignia"
         width="90px"
         height="90px"
@@ -18,7 +18,7 @@ const Medal = ({ img, name, description, descriptionTwo }) => (
         <p className="card__text">{description}</p>
         <hr />
         <div className="card__subtitle">Como Ganarla?</div>
-        <p className="card__text">{descriptionTwo}</p>
+        <p className="card__text">{requirement}</p>
       </div>
     </div>
   </li>

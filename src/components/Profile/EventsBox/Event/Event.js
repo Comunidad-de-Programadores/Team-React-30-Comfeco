@@ -1,11 +1,11 @@
 import React from 'react';
 import './Event.css';
 
-const Event = ({ img, description }) => (
+const Event = ({ id, image, description,openModalHandler }) => (
   <li className="cards__item">
     <div className="card">
       <img
-        src={img}
+        src={image.url}
         width="486px"
         height="200px"
         alt="evento"
@@ -14,11 +14,8 @@ const Event = ({ img, description }) => (
       <div className="card__content">
         <p className="card__text">{description}</p>
         <div className="card__footer">
-          <spam href="#" className="info">
-            Más información
-          </spam>
-          <button type="button" className="btn btn--block card__btn">
-            Button
+          <button type="button" className="btn btn--block card__btn" onClick={()=>openModalHandler(id)}>
+            Participar
           </button>
         </div>
       </div>

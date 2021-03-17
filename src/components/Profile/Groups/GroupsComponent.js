@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './groupsComponent.css';
 import Group from './Group/Group';
 import GroupNavigation from './GroupNavigation/GroupNavigation';
@@ -8,7 +8,12 @@ import useGet from '../../../hooks/useGet';
 const GroupsComponent = () => {
   const [data, fetching, error] = useGet('groups');
   
-  const [dataCopy, setDataCopy] = useState(data);
+  const [dataCopy, setDataCopy] = useState(null);
+  useEffect(() => {
+    if (data) {
+      setDataCopy(data);  
+    }
+  },[data])
 
   const onSearchChange = (search) => {
     const newData = data.filter((group) => group.name.includes(search));
