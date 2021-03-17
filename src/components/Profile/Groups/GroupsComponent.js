@@ -3,41 +3,11 @@ import React, { useState } from 'react';
 import './groupsComponent.css';
 import Group from './Group/Group';
 import GroupNavigation from './GroupNavigation/GroupNavigation';
+import useGet from '../../../hooks/useGet';
 
 const GroupsComponent = () => {
-  const [data] = useState([
-    {
-      id: 1,
-      img: '',
-      name: 'Grupo 1',
-      language: 'TypeScript',
-    },
-    {
-      id: 2,
-      img: '',
-      name: 'Grupo 2',
-      language: 'JavaScript',
-    },
-    {
-      id: 3,
-      img: '',
-      name: 'Grupo 3',
-      language: 'TypeScript',
-    },
-    {
-      id: 4,
-      img: '',
-      name: 'Grupo 4',
-      language: 'JavaScript',
-    },
-    {
-      id: 5,
-      img: '',
-      name: 'Grupo 5',
-      language: 'TypeScript',
-    },
-  ]);
-
+  const [data, fetching, error] = useGet('groups');
+  
   const [dataCopy, setDataCopy] = useState(data);
 
   const onSearchChange = (search) => {
@@ -54,6 +24,7 @@ const GroupsComponent = () => {
     setDataCopy(data);
   };
 
+  if (fetching || error) return null;
   return (
     <div className="groups">
       <GroupNavigation
