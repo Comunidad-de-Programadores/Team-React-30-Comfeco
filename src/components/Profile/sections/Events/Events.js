@@ -13,5 +13,4 @@ const Events = () => {
     if (isOpenModal) return <EventModal closeModal={closeModal} isOpenModal={isOpenModal} eventId={eventId} />
      
 };
-
 export default Events;
