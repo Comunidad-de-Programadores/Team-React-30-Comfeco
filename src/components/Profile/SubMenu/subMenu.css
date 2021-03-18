@@ -1,0 +1,73 @@
+.submenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-submenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+  height: 5rem;
+  background-color: var(--color-yellow);
+}
+
+.submenu .menu {
+  display: none;
+}
+
+.toggle-submenu-button {
+    outline: none;
+}
+
+.submenu .menu.open {
+  min-height: 12rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--color-white);
+}
+
+.submenu-button {
+  margin: 3rem 10rem;
+  display: flex;
+  height: 5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  border: none;
+}
+
+#profile:focus {
+  background-color: var(--color-yellow);
+}
+
+#trophies:focus {
+  background-color: #db2395;
+}
+
+#groups:focus {
+  background-color: #1d99ec;
+}
+
+#events:focus {
+  background-color: #1cf77f;
+}
+
+.submenu-button-icon {
+  margin-right: 1rem;
+}
+
+@media (min-width: 1420px) {
+  .submenu .menu {
+    min-height: 12rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .toggle-submenu {
+    display: none;
+  }
+}

@@ -1,0 +1,123 @@
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 0;
+  }
+  .cards__item {
+    display: flex;
+    padding: 1rem;
+  }
+  @media (min-width: 40rem) {
+    .cards__item {
+      width: 50%;
+    }
+  }
+  @media (min-width: 56rem) {
+    .cards__item {
+      width: 33.3333%;
+    }
+  }
+  .card {
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .card:hover .card__image {
+    filter: contrast(100%);
+  }
+  .card__content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .card__image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    filter: contrast(70%);
+    overflow: hidden;
+    position: relative;
+    transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  }
+  .card__image::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  @media (min-width: 40rem) {
+    .card__image::before {
+      padding-top: 66.6%;
+    }
+  }
+
+  
+  .card__title {
+    color: black;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    font-weight: bold;
+    padding: 1%;
+  }
+
+  .card__subtitle{
+    margin: auto;
+    padding: 2%;
+    font-size: 1.50rem;
+  }
+
+
+  .card__text {
+    flex: 1 1 auto;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    padding: 3%;
+  }
+
+  .card__footer{
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 1%;
+
+  }
+
+  .btn {
+    background-color: white;
+    border: 1px solid #cccccc;
+    color: #696969;
+    padding: 0.5rem;
+    text-transform: lowercase;
+  }
+  .btn--block {
+    width: 45%;
+  }
+
+  .btn:hover{
+      background: #8a178c;
+      color: white;
+      transition: all 300ms;
+  }
+
+  .info{
+    color: #636bfb;
+    font-size: 1.5rem;
+  }

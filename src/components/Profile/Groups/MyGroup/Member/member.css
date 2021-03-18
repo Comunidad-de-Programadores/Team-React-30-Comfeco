@@ -1,0 +1,16 @@
+.group-member {
+  display: flex;
+  justify-content: space-between;
+  border: 0.1rem solid var(--color-grey);
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+}
+
+.group-member-name {
+  display: flex;
+  align-items: center;
+}
+
+.group-member-name span {
+  margin-left: 1rem;
+}
