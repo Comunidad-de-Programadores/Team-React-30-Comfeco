@@ -1,0 +1,24 @@
+.my-group {
+  box-shadow: 0 0 1rem var(--color-grey);
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.my-group-title {
+  margin: 0;
+  margin-bottom: 2.5rem;
+}
+
+.my-group-title span {
+  font-weight: lighter;
+}
+
+.my-group-members {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-group-members .my-group-member {
+  margin: 1.5rem 0;
+}

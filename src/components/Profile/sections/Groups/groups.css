@@ -1,0 +1,11 @@
+.groups-section {
+    padding: 1rem;
+}
+
+@media screen and (min-width: 1320px) {
+    .groups-section {
+        display: grid;
+        grid-template-columns: 40rem 1fr;
+        padding: 1rem;
+    }
+}
