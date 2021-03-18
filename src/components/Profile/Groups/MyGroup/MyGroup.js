@@ -1,35 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState } from 'react';
 import Member from './Member/Member';
+import useGet from '../../../../hooks/useGet';
 import './myGroup.css';
 
 const MyGroup = () => {
-  const [data] = useState({
-    name: 'Grupo',
-    users: [
-      {
-        username: 'Usuario 1',
-        isLeader: false,
-      },
-      {
-        username: 'Usuario 2',
-        isLeader: false,
-      },
-      {
-        username: 'Usuario 3',
-        isLeader: true,
-      },
-      {
-        username: 'Usuario 4',
-        isLeader: false,
-      },
-      {
-        username: 'Usuario 5',
-        isLeader: false,
-      },
-    ],
-  });
-
+  const [data,fetching, error] = useGet(`groups/605123718578bc1c6041ff6b`)
+  
+  if (fetching || error) return null;
   return (
     <div className="my-group">
       <h4 className="my-group-title">
