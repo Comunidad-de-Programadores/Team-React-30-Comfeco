@@ -1,3 +1,12 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 0;
+}
+
 #Events-box {
     display: flex;
     width: 118%;

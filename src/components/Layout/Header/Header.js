@@ -27,9 +27,6 @@ export const Header = () => {
               <Link className="link" to="/home">
                 Inicio
               </Link>
-              <Link className="link" to="/communities">
-                Comunidades
-              </Link>
             </div>
           </>
         )}

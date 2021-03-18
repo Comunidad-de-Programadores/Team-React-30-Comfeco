@@ -34,9 +34,6 @@ const SideNav = () => {
             <Link to="/home" onClick={() => setIsOpen(false)}>
               Inicio
             </Link>
-            <Link to="/communities" onClick={() => setIsOpen(false)}>
-              Comunidades
-            </Link>
           </div>
         </div>
       </div>

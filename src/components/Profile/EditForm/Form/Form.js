@@ -41,7 +41,12 @@ const Form = () => {
         delete formDataCopy[key];
       }
     });
-    http.put(`users/${user.id}`, formDataCopy);
+   
+    http.put(`users/${user.id}`, formDataCopy).then(() => {
+      if (Object.keys(formDataCopy).length === 11) {
+        http.put(`users/${user.id}`, { insignias: ['60511fc2280e161c34a623ee'] });
+      }
+    });
   };
 
   return (
