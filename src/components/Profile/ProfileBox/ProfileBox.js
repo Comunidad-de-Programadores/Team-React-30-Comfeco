@@ -8,15 +8,17 @@ import Facebook from '../../Icons/Logos/Facebook';
 import Github from '../../Icons/Logos/Github';
 import Twitter from '../../Icons/Logos/Twitter';
 import LinkedIn from '../../Icons/Logos/LinkedIn';
+import { useSelector } from '../../../context/selector';
 
 export default function ProfileBox() {
   const [data] = useGet('users/me');
+  const { goTo } = useSelector();
   return (
     <>
       <div id="profile">
-        <a id="profile-edit" href="/">
+        <button type="button" id="profile-edit" onClick={()=>goTo('edit-profile')}>
           Editar Perfil
-        </a>
+        </button>
         <br />
         <div id="profile-photo">
           <img src={data.image?.url} alt={data.username || ''} />
